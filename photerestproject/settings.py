@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
+    'account.apps.AccountConfig',
     'post.apps.PostConfig',
 ]
 

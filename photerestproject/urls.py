@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
+import account.views
 import post.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', post.views.index, name='index'),
+    path('account/', include('account.urls')),
     path('post/', include('post.urls')),
 ]
 
