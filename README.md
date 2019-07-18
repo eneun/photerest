@@ -1,4 +1,4 @@
-# centerhack
+# Photerest
 
 ## 가상환경 관리
 ### pip 패키지 설치하고 나서
