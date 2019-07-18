@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="signup">
+    <form method="POST" action="{% url 'signup' %}">
+        {% csrf_token %}
+        {{form}}
+    
+    <h2> <i class="fas fa-user-plus"> </i> 회원가입 </h2>
+    <br/>
+
+    <input name="username" type="text" value="" required='true' class='fa icon' placeholder='&#xf007  아이디'>
+    {% if error1 %}
+        <div class="alert alert-danger" role="alert">
+            {{ error1 }}
+        </div>
+    {% endif %}
+
+    <input name="password1" type="password" value="" required='true' class='fa icon' placeholder='&#xf023  비밀번호'>
+    <input name="password2" type="password" value="" required='true' class='fa icon' placeholder='&#xf023  비밀번호 확인'>
+    {% if error2 %}
+        <div class="alert alert-danger" role="alert">
+            {{ error2 }}
+        </div>
+    {% endif %}
+
+    <input type="submit" class='fa btn btn-primary' value='가입하기&#xf2f6'>
+    </form>
+</div>
+
+{% endblock %}

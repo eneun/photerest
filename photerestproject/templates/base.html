@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
+        {% load staticfiles %}
+        {% load bootstrap4 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript jquery='full' %}
     </head>
     <body>
-        {% block content %}
         <h3>base.html</h3>
+        {% if user.is_authenticated %}
+            '{{ request.user.username }}'님 환영합니다.
+            <a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
+            <form id="logout" method="POST" action="{% url 'logout' %}" style="margin-bottom:0;">
+                {% csrf_token %} <input type="hidden" />
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">로그인</a><br/>
+        {% endif %}
+        <br/>
+
+        {% block content %}
         {% endblock content %} 
     </body>
 </html>
