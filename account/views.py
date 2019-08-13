@@ -7,6 +7,8 @@ from .forms import ProfileForm
 
 # Create your views here.
 
+def main(request):
+    return render(request, 'account/main.html')
 def signup(request):
     if request.method=='POST':
         # User has info and wants an account now!
@@ -19,7 +21,7 @@ def signup(request):
                     request.POST['username'], password=request.POST['password1'])
                 profile = Profile.objects.create(user=user)
             auth.login(request, user)
-            return redirect('list')
+            return redirect('list', user_id=request.user.id)
         else:
             return render(request, 'account/signup.html', {'error2': '비밀번호가 일치하지 않습니다.'})
     else:
@@ -28,14 +30,14 @@ def signup(request):
 
 def login(request):
     if request.user.is_authenticated:
-        return redirect('list')
+        return redirect('list', user_id=request.user.id)
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user = auth.authenticate(request, username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('list')
+            return redirect('list', user_id=request.user.id)
         else:
             return render(request, 'account/login.html', {'error': '아이디나 비밀번호가 올바르지 않습니다.'})
     else:
@@ -65,7 +67,7 @@ def changepropic(request):
             return render(request, 'account/settings.html', {'img_error': img_error})
         return redirect('setting')
     else:
-        return redirect('list')
+        return redirect('list', user_id=request.user.id)
 
 def changepassword(request):
     if request.method=='POST':
@@ -77,11 +79,11 @@ def changepassword(request):
                 user.set_password(new_password)
                 user.save()
                 auth.login(request, user)
-                return redirect('list')
+                return redirect('list', user_id=request.user.id)
             else:
                 error = '비밀번호가 일치하지 않습니다.'
         else:
             error = '현재 비밀번호가 일치하지 않습니다.'
     else:
-        return redirect('list')
+        return redirect('list', user_id=request.user.id)
     return render(request, 'account/setting.html', {'error': error})

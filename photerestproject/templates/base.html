@@ -14,12 +14,12 @@
                 <form id="logout" method="POST" action="{% url 'logout' %}" style="margin-bottom:0;">
                     {% csrf_token %} <input type="hidden" />
                 </form>
+                <a href="{% url 'list' request.user.id %}"> 피드 </a>
+                <a href="{% url 'setting' %}">설정</a>
             {% else %}
                 <a href="{% url 'login' %}">로그인</a><br/>
             {% endif %}
             <br/>
-            <a href="{% url 'list' %}"> 피드 </a>
-            <a href="{% url 'setting' %}">설정</a>
         </div>
 
         {% block content %}

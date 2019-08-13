@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>post/list.html</h2>
+<h3>{{user.username}}의 리스트</h3>
 <br/>
-<a href="{% url 'postcreate' %}">글 작성하기</a><br/>
+{% if user == request.user %}
+    <a href="{% url 'postcreate' %}">글 작성하기</a><br/>
+{% else %}
+    {% if follow %}
+        <a href="{% url 'follow' user.id %}">팔로우 취소</a><br/>
+    {% else %}
+        <a href="{% url 'follow' user.id %}">팔로우</a><br/>
+    {% endif %}
+{% endif %}
+팔로워 수 : {{user.receive.count}}<br/>
+팔로우 한 수 : {{user.send.count}}<br/>
 {% for post in posts %}
     <a href="{% url 'show' post.id %}">
         <img src={{post.image.url}} alt='등록한 이미지' style='width: 200px'><br/>

@@ -19,12 +19,14 @@ from django.conf.urls.static import static
 from django.urls import path, include
 import account.views
 import post.views
+import follow.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', post.views.list, name='list'),
+    path('', account.views.main, name='main'),
     path('account/', include('account.urls')),
     path('post/', include('post.urls')),
+    path('follow/', include('follow.urls')),
 ]
 
 # media

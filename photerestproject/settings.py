@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'account.apps.AccountConfig',
     'post.apps.PostConfig',
+    'follow.apps.FollowConfig',
 ]
 
 MIDDLEWARE = [
