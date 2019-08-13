@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>account/base.html</h2>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  프로필 사진 바꾸기
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <form action='infochange' method='POST'>
+            <div class="modal-body">
+                <input type='file' name='propic' accept='image/*'><br/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                <button type="submit" class="btn btn-primary">선택</button>
+            </div>
+        </form>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

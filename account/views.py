@@ -15,7 +15,7 @@ def signup(request):
                 user = User.objects.create_user(
                     request.POST['username'], password=request.POST['password1'])
             auth.login(request, user)
-            return redirect('index')
+            return redirect('list')
         else:
             return render(request, 'account/signup.html', {'error2': '비밀번호가 일치하지 않습니다.'})
     else:
@@ -24,14 +24,14 @@ def signup(request):
 
 def login(request):
     if request.user.is_authenticated:
-        return redirect('index')
+        return redirect('list')
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user = auth.authenticate(request, username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('index')
+            return redirect('list')
         else:
             return render(request, 'account/login.html', {'error': '아이디나 비밀번호가 올바르지 않습니다.'})
     else:
@@ -42,3 +42,9 @@ def logout(request):
         auth.logout(request)
         return redirect('login')
     return render(request, 'account/signup.html')
+
+
+def setting(request):
+    return render(request, 'account/setting.html')
+
+# def infochange(request):

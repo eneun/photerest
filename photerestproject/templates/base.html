@@ -7,17 +7,20 @@
         {% bootstrap_javascript jquery='full' %}
     </head>
     <body>
-        <h3>base.html</h3>
-        {% if user.is_authenticated %}
-            '{{ request.user.username }}'님 환영합니다.
-            <a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
-            <form id="logout" method="POST" action="{% url 'logout' %}" style="margin-bottom:0;">
-                {% csrf_token %} <input type="hidden" />
-            </form>
-        {% else %}
-            <a href="{% url 'login' %}">로그인</a><br/>
-        {% endif %}
-        <br/>
+        <div class='nav bg-warning'>
+            {% if user.is_authenticated %}
+                '{{ request.user.username }}'님 환영합니다.
+                <a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
+                <form id="logout" method="POST" action="{% url 'logout' %}" style="margin-bottom:0;">
+                    {% csrf_token %} <input type="hidden" />
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">로그인</a><br/>
+            {% endif %}
+            <br/>
+            <a href="{% url 'list' %}"> 피드 </a>
+            <a href="{% url 'setting' %}">설정</a>
+        </div>
 
         {% block content %}
         {% endblock content %} 

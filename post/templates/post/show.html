@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>post/show.html</h2>
+<h3>내용 : {{post.content}}</h3>
+<h3>작성자 : {{post.user.username}}</h3>
+<img src={{post.image.url}} alt='등록한 이미지' style='width: 200px'><br/>
+{% endblock %}
