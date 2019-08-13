@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>post/list.html</h2>
+<br/>
+<a href="{% url 'postcreate' %}">글 작성하기</a><br/>
 {% for post in posts %}
     <a href="{% url 'show' post.id %}">
         <img src={{post.image.url}} alt='등록한 이미지' style='width: 200px'><br/>

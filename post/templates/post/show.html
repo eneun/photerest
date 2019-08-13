@@ -4,4 +4,6 @@
 <h3>내용 : {{post.content}}</h3>
 <h3>작성자 : {{post.user.username}}</h3>
 <img src={{post.image.url}} alt='등록한 이미지' style='width: 200px'><br/>
+
+<a href="{% url 'postdelete' post.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">삭제하기</a>
 {% endblock %}
