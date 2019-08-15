@@ -3,17 +3,23 @@ from django.contrib.auth.models import User
 from post.models import Post
 from .forms import PostForm
 from follow.models import Follow
+from like.models import Like
 
 # Create your views here.
 def list(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     posts = Post.objects.filter(user=user_id)
     follow = Follow.objects.filter(send=request.user, receive=user)
-    return render(request, 'post/list.html', {'posts': posts, 'user': user ,'follow': follow})
+    like_count=0
+    for like in Like.objects.all():
+        if like.post.user == user:
+            like_count += 1
+    return render(request, 'post/list.html', {'posts': posts, 'user': user ,'follow': follow, 'like_count': like_count})
 
 def show(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    return render(request, 'post/show.html', {'post': post})
+    like = Like.objects.filter(user=request.user, post=post)
+    return render(request, 'post/show.html', {'post': post, 'like': like})
 
 def new(request):
     return render(request, 'post/new.html')

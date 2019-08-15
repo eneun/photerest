@@ -20,6 +20,7 @@ from django.urls import path, include
 import account.views
 import post.views
 import follow.views
+import like.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +28,7 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('post/', include('post.urls')),
     path('follow/', include('follow.urls')),
+    path('like/', include('like.urls')),
 ]
 
 # media

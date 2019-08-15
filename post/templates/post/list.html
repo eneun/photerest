@@ -14,6 +14,7 @@
 {% endif %}
 팔로워 수 : {{user.receive.count}}<br/>
 팔로우 한 수 : {{user.send.count}}<br/>
+좋아요 받은 수 : {{like_count}}<br/>
 {% for post in posts %}
     <a href="{% url 'show' post.id %}">
         <img src={{post.image.url}} alt='등록한 이미지' style='width: 200px'><br/>
