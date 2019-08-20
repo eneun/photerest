@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from post.models import Post
+from comment.models import Comment
 from .forms import PostForm
+from comment.forms import CommentForm
 from follow.models import Follow
 from like.models import Like
 
@@ -19,7 +21,9 @@ def list(request, user_id):
 def show(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     like = Like.objects.filter(user=request.user, post=post)
-    return render(request, 'post/show.html', {'post': post, 'like': like})
+    form = CommentForm()
+    comments = Comment.objects.filter(post=post)
+    return render(request, 'post/show.html', {'post': post, 'like': like, 'form': form, 'comments': comments})
 
 def new(request):
     return render(request, 'post/new.html')

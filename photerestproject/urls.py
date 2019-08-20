@@ -21,6 +21,7 @@ import account.views
 import post.views
 import follow.views
 import like.views
+import comment.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +30,7 @@ urlpatterns = [
     path('post/', include('post.urls')),
     path('follow/', include('follow.urls')),
     path('like/', include('like.urls')),
+    path('comment/', include('comment.urls')),
 ]
 
 # media

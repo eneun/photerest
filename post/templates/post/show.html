@@ -13,5 +13,17 @@
 {{ post.like_set.count }} Likes<br/>
 <img src={{post.image.url}} alt='등록한 이미지' style='width: 200px'><br/>
 
-<a href="{% url 'postdelete' post.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">삭제하기</a>
+<a href="{% url 'postdelete' post.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">삭제하기</a><br/>
+{% if post.user != request.user %}
+    <form action="{% url 'commentcreate' post.id %}" method='POST'>
+        {% csrf_token %}
+        {{form}}
+        <button type='submit'>댓글 등록</button>
+    </form>
+{% endif %}
+<em>댓글 목록</em><br/>
+{% for comment in comments %}
+    {{comment.user}} : {{comment.content}} {% if comment.user == request.user %}<a href="{% url 'commentdelete' comment.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">[삭제]</a> {% endif %}<br/>
+{% endfor %}
+
 {% endblock %}
