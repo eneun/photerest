@@ -4,6 +4,6 @@ from post.models import Post
 
 # Create your models here.
 class Like(models.Model):
-    user = models.ForeignKey(User, on_delete='CASCADE')
-    post = models.ForeignKey(Post, on_delete='CASCADE')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

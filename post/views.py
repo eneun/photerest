@@ -47,10 +47,6 @@ def postcreate(request):
 
 def postdelete(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    # 하드코딩
-    post.comment_set.all().delete()
-    post.like_set.all().delete()
-    post.label_set.all().delete()
     post.delete()
     return redirect('list', user_id=request.user.id)
 
