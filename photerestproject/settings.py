@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'post.apps.PostConfig',
     'follow.apps.FollowConfig',
     'like.apps.LikeConfig',
-    'comment.apps.CommentConfig'
+    'comment.apps.CommentConfig',
+    'labeling.apps.LabelingConfig',
 ]
 
 MIDDLEWARE = [
