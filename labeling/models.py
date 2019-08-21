@@ -6,3 +6,8 @@ class Label(models.Model):
     post = models.ForeignKey(Post, on_delete='CASCADE')
     label = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
+
+class Category(models.Model):
+    post = models.ForeignKey(Post, related_name='category_set', on_delete=models.CASCADE)
+    category = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)

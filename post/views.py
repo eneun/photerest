@@ -37,6 +37,7 @@ def postcreate(request):
             post.user = request.user
             post.save()
             labeling(post)
+            category(post)
             return redirect('list', user_id=request.user.id)
         else:
             return redirect('list')
@@ -82,10 +83,57 @@ def labeling(post):
     labels = response.label_annotations
     
     for label in labels:
-        print(label.description)
+        # print(label.description)
         # label = Label.objects.create(label=label, post=post)
         l = Label()
         l.label = label.description
         l.post = post
         l.save()
     return
+
+def category(post):
+    from sklearn.externals import joblib
+    from labeling.models import Category
+    labels = Label.objects.filter(post=post)
+    string = ''
+    for label in labels:
+        string = string + label.label + ' '
+    
+    clf_animal = joblib.load('/Users/ye/attemp/svm/svm_model/animal_clf.pkl')
+    clf_game = joblib.load('/Users/ye/attemp/svm/svm_model/game_clf.pkl')
+    clf_education = joblib.load('/Users/ye/attemp/svm/svm_model/education_clf.pkl')
+    clf_travel = joblib.load('/Users/ye/attemp/svm/svm_model/travel_clf.pkl')
+    clf_fitness = joblib.load('/Users/ye/attemp/svm/svm_model/fitness_clf.pkl')
+    clf_technology = joblib.load('/Users/ye/attemp/svm/svm_model/technology_clf.pkl')
+    clf_sports = joblib.load('/Users/ye/attemp/svm/svm_model/sports_clf.pkl')
+    clf_food = joblib.load('/Users/ye/attemp/svm/svm_model/food_clf.pkl')
+    clf_shopping = joblib.load('/Users/ye/attemp/svm/svm_model/shopping_clf.pkl')
+    clf_face = joblib.load('/Users/ye/attemp/svm/svm_model/face_clf.pkl')
+    clf_art = joblib.load('/Users/ye/attemp/svm/svm_model/art_clf.pkl')
+
+    
+    # print(clf_animal.predict([string]))
+    if clf_animal.predict([string]) == ['1']:
+        category = Category.objects.create(post=post, category='animal')
+    if clf_game.predict([string]) == ['1']:
+        category = Category.objects.create(post=post, category='game')
+    if clf_education.predict([string]) == ['1']:
+        category = Category.objects.create(post=post, category='education')
+    if clf_travel.predict([string]) == ['1']:
+        category = Category.objects.create(post=post, category='travel')
+    if clf_fitness.predict([string]) == ['1']:
+        category = Category.objects.create(post=post, category='fitness')
+    if clf_technology.predict([string]) == ['1']:
+        category = Category.objects.create(post=post, category='technology')
+    if clf_sports.predict([string]) == ['1']:
+        category = Category.objects.create(post=post, category='sports')
+    if clf_food.predict([string]) == ['1']:
+        category = Category.objects.create(post=post, category='food')
+    if clf_shopping.predict([string]) == ['1']:
+        category = Category.objects.create(post=post, category='shopping')
+    if clf_face.predict([string]) == ['1']:
+        category = Category.objects.create(post=post, category='face')
+    if clf_art.predict([string]) == ['1']:
+        category = Category.objects.create(post=post, category='art')
+    
+    
