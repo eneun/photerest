@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
-from post.models import Post
+from .models import Post
 from comment.models import Comment
 from .forms import PostForm
 from comment.forms import CommentForm
@@ -8,8 +8,9 @@ from follow.models import Follow
 from like.models import Like
 from labeling.models import Label
 
+
 # Create your views here.
-def list(request, user_id):
+def listing(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     posts = Post.objects.filter(user=user_id)
     follow = Follow.objects.filter(send=request.user, receive=user)
@@ -38,6 +39,7 @@ def postcreate(request):
             post.save()
             labeling(post)
             category(post)
+            set_interest(post.user)
             return redirect('list', user_id=request.user.id)
         else:
             return redirect('list')
@@ -49,7 +51,6 @@ def postdelete(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     post.delete()
     return redirect('list', user_id=request.user.id)
-
 
 def labeling(post):
     # export GOOGLE_APPLICATION_CREDENTIALS=/Users/ye/grad/apikey.json
@@ -82,7 +83,7 @@ def labeling(post):
         # print(label.description)
         # label = Label.objects.create(label=label, post=post)
         l = Label()
-        l.label = label.description
+        l.label = label.description.replace(" ", "")
         l.post = post
         l.save()
     return
@@ -132,4 +133,55 @@ def category(post):
     if clf_art.predict([string]) == ['1']:
         category = Category.objects.create(post=post, category='art')
     
+def set_interest(user):
+    from finding.models import Interest
     
+    pre_interests = Interest.objects.filter(user=user)
+    pre_interests.delete()
+    new_interests = find_interest(user)
+    for interest in new_interests:
+        new_interests = Interest.objects.create(interest=interest, user=user)
+    return
+
+def find_interest(user):
+    posts = Post.objects.filter(user=user)
+    # print(posts)
+    categories = {'animal':0, 'shopping':0, 'art':0, 'game':0, 'education':0, 'travel':0, 'fitness':0, 'technology':0, 'food':0, 'sports':0, 'face':0}
+    for post in posts:
+        # print(post)
+        for category in post.category_set.all():
+            # print(category)
+            category = str(category)
+            if category == 'animal':
+                categories['animal'] += 1
+            elif category == 'shopping':
+                categories['shopping'] += 1
+            elif category == 'art':
+                categories['art'] += 1
+            elif category == 'game':
+                categories['game'] += 1
+            elif category == 'education':
+                categories['education'] += 1
+            elif category == 'travel':
+                categories['travel'] += 1
+            elif category == 'fitness':
+                categories['fitness'] += 1
+            elif category == 'technology':
+                categories['technology'] += 1
+            elif category == 'food':
+                categories['food'] += 1
+            elif category == 'sports':
+                categories['sports'] += 1
+            elif category == 'face':
+                categories['face'] += 1
+
+    total = 0
+    for num in categories.values():
+        total += num
+    
+    for category in list(categories.keys()):
+        categories[category] /= total
+        if categories[category] < 0.3:
+            del categories[category]
+
+    return list(categories.keys())

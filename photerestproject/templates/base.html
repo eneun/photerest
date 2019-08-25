@@ -16,6 +16,8 @@
                 </form>
                 <a href="{% url 'list' request.user.id %}"> 피드 </a>
                 <a href="{% url 'setting' %}">설정</a>
+                <a href="{% url 'recommend' %}">친구찾기</a>
+                <a href="{% url 'trend' %}">트렌드</a>
             {% else %}
                 <a href="{% url 'login' %}">로그인</a><br/>
             {% endif %}

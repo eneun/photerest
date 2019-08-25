@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>trend.html</h1>
+# {{first}}<br/>
+{% for trend in first_trend %}
+    {{ trend }}
+{% endfor %}<br/>
+
+# {{second}}<br/>
+{% for trend in second_trend %}
+    {{ trend }}
+{% endfor %}<br/>
+
+# {{third}}<br/>
+{% for trend in third_trend %}
+    {{ trend }}
+{% endfor %}<br/>
+
+
+{% endblock %}

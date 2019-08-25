@@ -1,27 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load staticfiles %}
 
-<div class="signup">
-    <form method="POST" action="{% url 'signup' %}">
-        {% csrf_token %}
-        {{form}}
-    
-    <h2> <i class="fas fa-user-plus"> </i> 회원가입 </h2>
-    <br/>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+</head>
+    <div class="signup">
+        <form method="POST" action="{% url 'signup' %}">
+            {% csrf_token %}
+            {{form}}
+        
+            <div class='mt-5'>
+        <h2>
+            <a href="{% url 'login' %}" id=toplog>LOGIN</a>
+            <a id=topsign>SIGNUP</a>
+        </h2>
+        </div>
 
-    <input name="username" type="text" required='true' placeholder='아이디를 입력하세요.'><br/>
-    {% if error1 %}
-        {{ error1 }}
-    {% endif %}
 
-    <input name="password1" type="password" required='true' placeholder='비밀번호'><br/>
-    <input name="password2" type="password" required='true' placeholder='비밀번호 확인'><br/>
-    {% if error2 %}
-        {{ error2 }}
-    {% endif %}
+        <div class=signupbox>
+            <label for="inp" class="inp">
+            {% comment %} <input name="username" type="text" required='true' placeholder='아이디를 입력하세요.'> {% endcomment %}
+            <input name="username" type="text" id="inp" placeholder="&nbsp;">
+            <span class="label">아이디</span>
+            <span class="border"></span>
+            </label>
+            {% if error1 %}
+                {{ error1 }}
+            {% endif %}
 
-    <input type="submit" class='fa btn btn-primary' value='가입하기&#xf2f6'><br/>
-    </form>
-</div>
+            <label for="inp" class="inp mt-3">
+            <input name="password1" type="password" id="inp" placeholder="&nbsp;">
+            <span class="label">비밀번호</span>
+            <span class="border"></span>
+            </label>
+            <label for="inp" class="inp mt-3">
+            <input name="password2" type="password" id="inp" placeholder="&nbsp;">
+            <span class="label">비밀번호 확인</span>
+            <span class="border"></span>
+            </label>
+            {% if error2 %}
+                 {{ error2 }}
+            {% endif %}
+        </div>
 
-{% endblock %}
+        <div class="d-flex justify-content-center">
+            <button type="submit" class='fa confirm-btn btn-primary'>가입하기</button>
+        </div>
+
+        </form>
+    </div>
+
+    {% endblock %}
