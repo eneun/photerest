@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
+main {
+  min-width: 200px;
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 10px;
+}
+main .wrap {
+  padding: 40px 20px;
+  background-color: #fff;
+}
+main .title {
+  font-size: 2em;
+  text-align: center;
+  margin: 20px auto 40px;
+  text-transform: uppercase;
+}
+
+header nav {
+  background-color: #002060;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+header nav div.menuprofile {
+    font-family: 'NanumGothic', 'serif';
+    font-weight: lighter;
+}
+@media(min-width: 768px) {
+    header nav ul.menu_profile {
+        /* display: none; */
+    }
+}
+
+header nav ul {
+    font-family: 'NanumGothic', 'serif';
+    font-weight: lighter;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 10rem;
+    position: absolute;
+    left: 35%;
+    transition: all 0.3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+header nav ul li {
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  opacity: 0;
+}
+header nav ul li a.item {
+  display: block;
+  font-size: 3rem;
+  text-decoration: none;
+  padding: 15px 0;
+  color: #fff;
+  font-weight: lighter;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+@media(min-width: 1024px) {
+    header nav ul li a.item {
+        font-size: 1rem;
+    }
+}
+header nav ul li a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.toggle-btn {
+  display: block;
+  position: fixed;
+  z-index: 10;
+  right: 50px;
+  top: 28px;
+  cursor: pointer;
+}
+.toggle-btn .bar {
+  width: 70px;
+  height: 5px;
+  margin: 15px auto;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+}
+.toggle-btn .bar:nth-child(2) {
+  width: 70px;
+}
+
+#toggle:checked ~ nav {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+#toggle:checked ~ nav ul.menu_profile {
+  top: 0px;
+  color: white;
+}
+#toggle:checked ~ nav ul.menu_profile li {
+    margin-bottom: 0;
+}
+#toggle:checked ~ nav ul.menu_profile li.menu_username {
+  font-size: 5rem;
+  padding-left: 3.5rem;
+}
+.login_require {
+    font-size: 4rem;
+    padding:0;
+}
+#toggle:checked ~ nav ul.menu_profile img {
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+#toggle:checked ~ nav ul.items {
+    top: 550px;
+}
+@media(min-width: 768px) {
+    #toggle:checked ~ nav ul.items {
+        /* top: 0; */
+    }
+}
+#toggle:checked ~ nav ul li {
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  opacity: 1;
+  font-size: 1.7rem;
+  margin-bottom: 3rem;
+  width: 550px;
+  padding-left:3rem;
+}
+#toggle:checked ~ nav ul li:hover {
+    width: 550px;
+    background-color: #fbb504;
+    border-radius: 100px;
+}
+#toggle:checked ~ nav ul li:nth-child(1) {
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.1s;
+}
+#toggle:checked ~ nav ul li:nth-child(2) {
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.2s;
+}
+#toggle:checked ~ nav ul li:nth-child(3) {
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.3s;
+}
+#toggle:checked ~ nav ul li:nth-child(4) {
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.4s;
+}
+#toggle:checked ~ nav ul li:nth-child(5) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.5s;
+}
+#toggle:checked ~ nav ul li:nth-child(6) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.6s;
+}
+#toggle:checked ~ nav ul li:nth-child(7) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.7s;
+}
+#toggle:checked + label.toggle-btn .bar {
+  background-color: #ff2a8d;
+}
+#toggle:checked + label.toggle-btn .bar:nth-child(2) {
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+  opacity: 0;
+}
+#toggle:checked + label.toggle-btn .bar:nth-child(1) {
+  -webkit-transform: translateY(10px) rotate(45deg);
+          transform: translateY(30px) rotate(45deg);
+}
+#toggle:checked + label.toggle-btn .bar:nth-child(3) {
+  -webkit-transform: translateY(-8px) rotate(-45deg);
+          transform: translateY(-10px) rotate(-45deg);
+}
+
+
+
+.nav.top-nav {
+    height: 150px;
+}
+.nav.top-nav li{
+    font-size: 2rem;
+    padding: 2rem;
+    color: white;
+    font-family: 'NanumGothic', 'serif';
+    
+}
+.nav.top-nav li.current-page{
+    font-size: 3rem;
+    padding: 2rem 0rem;
+    color: white;
+    font-family: 'NanumGothic', 'serif';
+}
+.nav.top-nav li img.arrow-icon-styling {
+    width: 70px;
+    height: 60px;
+}

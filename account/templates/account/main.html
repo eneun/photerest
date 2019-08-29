@@ -1,5 +1,12 @@
-{% extends 'base.html' %}
-{% block content %}
-<h1>메인화면</h1>
+{% load staticfiles %}
 
-{% endblock %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+
+<div class='main-img'>
+    <p class='main-text'>나만의 피드를 꾸미고<br/>비슷한 관심사를 가진 사용자를 찾아보세요.</p>
+</div>
+<div class='welcome-box'>Welcome to<br/>Photerest</div>
+<a href="{% url 'signup' %}" class='main-item'><div class='get-started'>GET STARTED</div></a>
+<a href="{% url 'login' %}" class='main-item'><div class='login'>LOGIN</div></a>

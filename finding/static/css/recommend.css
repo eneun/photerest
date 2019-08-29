@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
+body{
+    background-color: #002060;
+    font-family: 'NanumGothic', 'serif';
+}
+.interestbox{
+    background-color: #FBB504;
+    border-radius: 150px 150px 0px 0px;
+    height: 100vh;
+}
+.interest {
+    padding: 4rem 5rem;
+}
+.interest img.interest-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.my-interests {
+    color: white;
+}
+.my-interests-header {
+    border-bottom: 1px solid white;
+    padding-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+.my-interests-items {
+    display: flex;
+    justify-content: space-between;
+    font-size: 3rem;
+}
+.recommendbox{
+    background-color: white;
+    border-radius: 150px 150px 0px 0px;
+    height: 100%;
+    padding: 13rem 5rem;
+}
+.user-row {
+    margin-bottom: 5rem;
+}
+.user-thumb {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.user-name {
+    display: block;
+    font-size: 2.5rem;
+    color: #404040;
+}
+.recommend-posts {
+    white-space: nowrap;
+    overflow-x: scroll;
+    margin-bottom: 3rem;
+}
+.recommend-thumbnail {
+    width: 230px;
+    height: 230px;
+    margin-right: 0.1rem;	
+    object-fit: cover;
+}

@@ -12,7 +12,7 @@ from labeling.models import Label
 # Create your views here.
 def listing(request, user_id):
     user = get_object_or_404(User, pk=user_id)
-    posts = Post.objects.filter(user=user_id)
+    posts = Post.objects.filter(user=user_id).order_by('-created_at')
     follow = Follow.objects.filter(send=request.user, receive=user)
     like_count=0
     for like in Like.objects.all():
@@ -22,10 +22,15 @@ def listing(request, user_id):
 
 def show(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
+    like_count=0
+    for l in Like.objects.all():
+        if l.post.user == post.user:
+            like_count += 1
     like = Like.objects.filter(user=request.user, post=post)
+    follow = Follow.objects.filter(send=request.user, receive=post.user)
     form = CommentForm()
     comments = Comment.objects.filter(post=post)
-    return render(request, 'post/show.html', {'post': post, 'like': like, 'form': form, 'comments': comments})
+    return render(request, 'post/show.html', {'post': post, 'like': like, 'form': form, 'comments': comments, 'follow': follow, 'like_count': like_count})
 
 def new(request):
     return render(request, 'post/new.html')
@@ -179,6 +184,9 @@ def find_interest(user):
     for num in categories.values():
         total += num
     
+    if total == 0:
+        total = 1
+        
     for category in list(categories.keys()):
         categories[category] /= total
         if categories[category] < 0.3:

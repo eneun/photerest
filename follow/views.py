@@ -12,5 +12,5 @@ def follow(request, user_id):
         return redirect('list', user_id=user.id)
     else:
         Follow.objects.create(send=request.user, receive=user)
-    # return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        # return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         return redirect('list', user_id=user.id)

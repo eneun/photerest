@@ -5,24 +5,64 @@
         {% load bootstrap4 %}
         {% bootstrap_css %}
         {% bootstrap_javascript jquery='full' %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     </head>
     <body>
-        <div class='nav bg-warning'>
-            {% if user.is_authenticated %}
-                '{{ request.user.username }}'님 환영합니다.
-                <a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
-                <form id="logout" method="POST" action="{% url 'logout' %}" style="margin-bottom:0;">
-                    {% csrf_token %} <input type="hidden" />
-                </form>
-                <a href="{% url 'list' request.user.id %}"> 피드 </a>
-                <a href="{% url 'setting' %}">설정</a>
-                <a href="{% url 'recommend' %}">친구찾기</a>
-                <a href="{% url 'trend' %}">트렌드</a>
-            {% else %}
-                <a href="{% url 'login' %}">로그인</a><br/>
-            {% endif %}
-            <br/>
-        </div>
+
+    <!-- 상단바 -->
+    <ul class="nav top-nav">
+        <li class="nav-item menu-left-arrow">
+            <a class="nav-link" href="#" onClick="history.back(); return false;"><img src="{% static 'images/left-arrow.png' %}" class='arrow-icon-styling'></a>
+        </li>
+        <li class="nav-item current-page">
+            <script src="{% static 'js/current_page.js' %}" type='text/javascript'></script>
+        </li>
+    </ul>
+
+
+    <header>
+        <input type='checkbox' id='toggle' style='display:none;' />
+        <label class='toggle-btn toggle-btn__cross' for='toggle'>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </label>
+        <nav>
+            <ul class='menu_profile'>
+                {% if user.is_authenticated %}
+                <li>
+                    <img src={{request.user.profile.image.url}} alt='프로필 사진'>
+                </li>
+                <li class='menu_username'>
+                    {{request.user.username}}
+                </li>
+                {% else %}
+                <li>
+                    <img src="{% static 'images/basic-profile-img.png'%}" class="menu_profile_img" alt='프로필 사진'>
+                </li>
+                <li class='menu_username'>
+                    로그인이<br/>필요합니다.
+                </li>
+                {% endif %}            
+
+            </ul>
+            <ul class='items'>
+                {% if user.is_authenticated %}
+                    <li><a class='item' href="{% url 'main' %}"><i class="fas fa-home mr-5"></i> 홈</a></li>
+                    <li><a class='item' href="{% url 'list' request.user.id %}"><i class="fas fa-user mr-5"></i> 내 피드</a></li>
+                    <li><a class='item' href="{% url 'recommend' %}"><i class="fas fa-user-friends mr-5"></i>친구찾기</a></li>
+                    <li><a class='item' href="{% url 'trend' %}"><i class="far fa-heart mr-5"></i> 트렌드</a></li>
+                    <li><a class='item' href="{% url 'setting' %}"><i class="fas fa-cog mr-5"></i> 설정</a></li>
+                    <li><a class='item' href="{% url 'logout' %}"><i class="fas fa-sign-out-alt mr-5"></i> 로그아웃</a></li>
+                    
+                {% else %}
+                    <li><a class='item' href="{% url 'login' %}"><i class="fas fa-sign-in-alt mr-5"></i>로그인</a></li>
+                {% endif %}
+            </ul>
+            
+        </nav>
+        </header>
 
         {% block content %}
         {% endblock content %} 

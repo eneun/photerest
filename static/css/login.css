@@ -1,3 +1,116 @@
-a {
-    color: red;
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
+
+.loginbox {
+    font-family: 'NanumGothic', 'serif';
+    background-color:white;
+    border-radius: 100px;
+    margin: 50px;
+    margin-top:25px;
+    display: grid;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    padding: 8rem;
 }
+body{
+    background-image: url( "../images/background_log.png" );
+    background-repeat : no-repeat;
+    background-size : cover;
+}
+h2{
+    font-family: 'NanumGothic', 'serif';
+    font-size: 50px;
+    text-align: center;
+    letter-spacing: 10px;
+    word-spacing: 150px;
+    margin-bottom: 10px;
+}
+#toplog{
+    position: relative;
+    color: white;
+} 
+.topsign{
+    color: #9098a9;
+}
+.topsign:hover {
+    color: white;
+}
+.inp {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    margin-bottom: 5rem;
+}
+.inp .label {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    font-size: 2rem;
+    color: #9098a9;
+    font-weight: 500;
+    transform-origin: 0 0;
+    transition: all 0.2s ease;
+}
+.inp .border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background: #FF2A8D;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: all 0.15s ease;
+}
+.inp input {
+    -webkit-appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    height: 48px;
+    font-size: 4rem;
+    font-weight: 500;
+    border-bottom: 2px solid #c8ccd4;
+    background: none;
+    border-radius: 0;
+    color: #223254;
+    transition: all 0.15s ease;
+}
+.inp input:hover {
+    background: rgba(34,50,84,0.03);
+}
+.inp input:not(:placeholder-shown) + span {
+    color: #5a667f;
+    transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus {
+    background: none;
+    outline: none;
+}
+.inp input:focus + span {
+    color: #FF2A8D;
+    transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus + span + .border {
+    transform: scaleX(1);
+}
+
+.confirm-btn{
+    border-radius:40px;
+    background:#FF2A8D;
+    color:#fff;
+    border:none;
+    border-radius: 100px;
+    /* height:80px !important; */
+    font-size:3rem ;
+    letter-spacing: 20px;
+    padding:2rem 20rem;
+    outline:none;
+    margin-top: 25px;
+  }
+  .confirm-btn:hover{
+    background:#fff;
+    color:#FF2A8D;
+  }

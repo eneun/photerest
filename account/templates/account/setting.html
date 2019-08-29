@@ -1,46 +1,73 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load staticfiles %}
-<h2>account/setting.html</h2>
-
-<img src={{request.user.profile.image.url}} alt='프로필 사진' width=200><br/>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  프로필 사진 바꾸기
-</button>
-{% if img_error %}
-  {{ img_error }}
-{% endif %}
-
-<!-- 프로필 사진 바꾸기 팝업 -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <form enctype="multipart/form-data" action="{% url 'changepropic' %}" method='POST'>
-            {% csrf_token %}
-            <div class="modal-body">
-                {{form}}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                <button type="submit" class="btn btn-primary">선택</button>
-            </div>
-        </form>
-
-    </div>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/setting.css' %}">
+</head>
+<div class="row presentprofile">
+  <div class="col-4">
+    <img src={{request.user.profile.image.url}} alt='프로필 사진' width=200>
+  </div>
+  <div class="col profileid">
+    {{request.user.username}}
   </div>
 </div>
+<div class="row-3 profilebutton">
+  <button type="button" class="btn editbutton" data-toggle="modal" data-target="#exampleModal">
+    &nbsp;EDIT</button>
+      {% if img_error %}
+        {{ img_error }}
+      {% endif %}
+</div>
 
-<h4>아이디 : {{request.user.username}}</h4>
-<h5>*비밀번호는 변경을 원할 시에만 입력하세요.</h5>
-<form action="{% url 'changepassword' %}" method='POST'>
-    {% csrf_token %}
-    <input name="current_password" type="password" placeholder='현재 비밀번호' required><br/>
-    <input name="password1" type="password" placeholder='새로운 비밀번호' required><br/>
-    <input name="password2" type="password" placeholder='비밀번호 확인' required><br/>
-    {% if error %}
-        {{ error }}
-    {% endif %}
-    <input type='submit' value='확인'>
-</form>
+  <!-- 프로필 사진 바꾸기 팝업 -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <form enctype="multipart/form-data" action="{% url 'changepropic' %}" method='POST'>
+              {% csrf_token %}
+              <div class="modal-body">
+                  {{form}}
+                  <div class='row mt-5'>
+                    <div class='col'>
+                      <button type="submit" class="btn btn-block btn-outline-warning">변경</button>
+                    </div>
+                    <div class='col'>
+                      <button type="button" class="btn btn-block btn-outline-secondary" data-dismiss="modal">취소</button>
+                    </div>
+                  </div>
+              </div>
+          </form>
 
+      </div>
+    </div>
+  </div>
+
+<div class="changebox">
+  <br/><h3>*비밀번호는 변경을 원할 시에만 입력하세요.</h3><br/>
+  <form action="{% url 'changepassword' %}" method='POST'>
+      {% csrf_token %}
+      <label for="inp" class="inp mt-3">
+        <input name="current_password" type="password" id="inp" placeholder="&nbsp;" required>
+        <span class="label">현재 비밀번호</span>
+        <span class="border"></span>
+      </label>
+      <label for="inp" class="inp mt-3">
+        <input name="password1" type="password" id="inp" placeholder="&nbsp;" required>
+        <span class="label">새로운 비밀번호</span>
+        <span class="border"></span>
+      </label>
+      <label for="inp" class="inp mt-3">
+        <input name="password2" type="password" id="inp" placeholder="&nbsp;" required>
+        <span class="label">비밀번호 확인</span>
+        <span class="border"></span>
+      </label>
+      {% if error %}
+          {{ error }}
+      {% endif %}
+      <div class="d-flex justify-content-center">
+            <button type="submit" class='fa savebutton'>저장</button>
+      </div>
+  </form>
+</div>
 {% endblock %}

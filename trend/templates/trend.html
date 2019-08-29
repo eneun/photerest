@@ -1,21 +1,45 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load staticfiles %}
 
-<h1>trend.html</h1>
-# {{first}}<br/>
-{% for trend in first_trend %}
-    {{ trend }}
-{% endfor %}<br/>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/trend.css' %}">
+</head>
 
-# {{second}}<br/>
-{% for trend in second_trend %}
-    {{ trend }}
-{% endfor %}<br/>
-
-# {{third}}<br/>
-{% for trend in third_trend %}
-    {{ trend }}
-{% endfor %}<br/>
-
+<div class='trend-info'>
+    <div class='info-header'>
+        <h1>지금 인기있는 사진을 둘러보세요!</h1>
+        <h3>See the trends right now!</h3>
+    </div>
+</div>
+<div class=trendbox>
+    <p class='trend-name'># {{first}}</p>
+    <div class="trends">
+        <div class="trend">
+            {% for trend in first_trend %}
+                {% comment %} {{ trend }} {% endcomment %}
+                <img src={{trend.image.url}} alt='이미지' class='thumbnail' />
+            {% endfor %}
+        </div>
+	</div>
+    <p class='trend-name'># {{second}}</p>
+    <div class="trends">
+        <div class="trend">
+            {% for trend in second_trend %}
+                {% comment %} {{ trend }} {% endcomment %}
+                <img src={{trend.image.url}} alt='이미지 ' class='thumbnail' />
+            {% endfor %}
+        </div>
+	</div>
+    <p class='trend-name'># {{third}}</p>
+    <div class="trends">
+        <div class="trend">
+            {% for trend in third_trend %}
+                {% comment %} {{ trend }} {% endcomment %}
+                <img src={{trend.image.url}} alt='이미지 ' class='thumbnail' />
+            {% endfor %}
+        </div>
+	</div>
+</div>
 
 {% endblock %}

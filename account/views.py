@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.hashers import check_password
@@ -10,6 +10,8 @@ from .forms import ProfileForm
 def main(request):
     return render(request, 'account/main.html')
 def signup(request):
+    if request.user.is_authenticated:
+        return redirect('list', user_id=request.user.id)
     if request.method=='POST':
         # User has info and wants an account now!
         if request.POST['password1'] == request.POST['password2']:
@@ -44,10 +46,8 @@ def login(request):
         return render(request, 'account/login.html')
 
 def logout(request):
-    if request.method == 'POST':
-        auth.logout(request)
-        return redirect('login')
-    return render(request, 'account/signup.html')
+    auth.logout(request)
+    return redirect('login')
 
 
 def setting(request):

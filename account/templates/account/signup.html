@@ -21,31 +21,34 @@
         <div class=signupbox>
             <label for="inp" class="inp">
             {% comment %} <input name="username" type="text" required='true' placeholder='아이디를 입력하세요.'> {% endcomment %}
-            <input name="username" type="text" id="inp" placeholder="&nbsp;">
+            <input name="username" type="text" id="inp" placeholder="&nbsp;" required>
             <span class="label">아이디</span>
             <span class="border"></span>
             </label>
-            {% if error1 %}
-                {{ error1 }}
-            {% endif %}
 
             <label for="inp" class="inp mt-3">
-            <input name="password1" type="password" id="inp" placeholder="&nbsp;">
+            <input name="password1" type="password" id="inp" placeholder="&nbsp;" required>
             <span class="label">비밀번호</span>
             <span class="border"></span>
             </label>
             <label for="inp" class="inp mt-3">
-            <input name="password2" type="password" id="inp" placeholder="&nbsp;">
+            <input name="password2" type="password" id="inp" placeholder="&nbsp;" required>
             <span class="label">비밀번호 확인</span>
             <span class="border"></span>
             </label>
-            {% if error2 %}
-                 {{ error2 }}
-            {% endif %}
         </div>
-
+        {% if error1 %}
+            <div class="alert alert-danger account-alert" role="alert">
+                {{ error1 }}
+            </div>
+        {% endif %}
+        {% if error2 %}
+            <div class="alert alert-danger account-alert" role="alert">
+                 {{ error2 }}
+            </div>
+        {% endif %}
         <div class="d-flex justify-content-center">
-            <button type="submit" class='fa confirm-btn btn-primary'>가입하기</button>
+            <button type="submit" class='fa confirm-btn'>가입하기</button>
         </div>
 
         </form>

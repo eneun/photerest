@@ -43,7 +43,9 @@
             </label>
         </div>
         {% if error %}
-            {{ error }}<br/>
+            <div class="alert alert-danger account-alert" role="alert">
+                {{ error }}
+            </div>
         {% endif %}
         <div class="d-flex justify-content-center">
             <button type="submit" class='btn confirm-btn'>로그인</button>

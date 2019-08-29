@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>post/new.html</h2>
+{% load staticfiles %}
 
-<form enctype="multipart/form-data" method='POST'>
-    {% csrf_token %}
-    {{form}}
-    <br/>
-    <input type='submit' value='등록'>
-</form>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/new.css' %}">
+</head>
 
+<div class=listbox>
+    <div class="postcontainer">
+        <h1>New post</h1>
+        <br><hr>
+        <br><br>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+            <input type="submit" class="btn newpost-btn" value="등록"/>
+        </form>
+    </div>
+</div>
 {% endblock %}

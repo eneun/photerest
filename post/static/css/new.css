@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
+body{
+    background-color: #002060;
+    color:black;
+}
+.listbox{
+    background-size: 500px;
+    background-color: white;
+    border-radius: 150px 150px 0px 0px;
+    padding: 50px;
+    height: 100vh;
+}
+.postcontainer{
+    padding: 0 100px;
+    font-family: 'NanumGothic', 'serif';
+    font-size: 30px;
+    color:#002060;
+}
+.postcontainer h1{
+    font-family: 'NanumGothic', 'serif';
+    font-size: 60px;
+    color:#002060;
+}
+.writearea{
+    border-radius: 30px;
+    font-family: 'NanumGothic', 'serif';
+    font-size: 30px;
+    color:#002060;
+}
+.newpost-btn{
+    background:#FF2A8D;
+    color:#fff;
+    border:none;
+    border-radius: 100px;
+    /* height:80px !important; */
+    font-size:30px;
+    letter-spacing: 20px;
+    width:100%;
+    padding:1.5rem 10rem;
+    margin-top: 50px;
+    outline:none;
+  }
+  .newpost-btn:hover{
+    background:#fff;
+    color:#FF2A8D;
+  }

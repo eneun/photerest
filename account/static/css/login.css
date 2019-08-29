@@ -114,3 +114,10 @@ h2{
     background:#fff;
     color:#FF2A8D;
   }
+
+.account-alert {
+    margin: 50px;
+    font-size: 2.3rem;
+    border-radius: 20px;
+    padding: 2rem;
+}
