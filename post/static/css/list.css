@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
 
+
 body{
     background-color: #002060;
 }
@@ -23,7 +24,7 @@ body{
     color: white;
 } 
 .fa-plus::before{
-    padding: 20px;
+    padding: 22px;
     background-color: #FF2A8D;
     border-radius: 100%;
 }
@@ -33,7 +34,7 @@ body{
     background-color: white;
     border-radius: 150px 150px 0px 0px;
     padding: 50px;
-    height: 100vh;
+    min-height: 100vh;
 }
 .followbox{
     font-family: 'NanumGothic', 'serif';
@@ -46,9 +47,46 @@ body{
 .piclist img{
     width:100%;
     height: 298px;
-    overflow: hidden;
+    object-fit: cover;
+
 }
 .col-sm-4{
     padding-left: 0px;
     padding-right: 0px;
+}
+@media screen and ( min-width: 1000px ) {
+    .profile{
+        padding: 0px 200px;
+    }
+    .profile img{
+        height: 100px;
+        width:100px;
+    }
+    .profile .showname{
+        font-family: 'NanumGothic', 'serif';
+        font-size: 30px;
+    } 
+    .fa-plus::before{
+        font-size: 50px;
+        background-color: #FF2A8D;
+        border-radius: 100%;
+        margin-bottom: 5px;
+    }
+    .listbox{
+        border-radius: 100px 100px 0px 0px;
+        min-height: 100vh; 
+        padding: 30px;
+        margin: 0 2rem;
+    }
+    .followbox{
+        font-family: 'NanumGothic', 'serif';
+        font-weight: bold;
+        font-size: 30px;
+        text-align: center;
+        height: 150px;
+    }
+    .piclist {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 }

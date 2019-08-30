@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/setting.css' %}">
 </head>
 <div class="row presentprofile">
-  <div class="col-4">
+  <div class="col-4 col-lg-3">
     <img src={{request.user.profile.image.url}} alt='프로필 사진' width=200>
   </div>
   <div class="col profileid">
@@ -44,7 +44,7 @@
   </div>
 
 <div class="changebox">
-  <br/><h3>*비밀번호는 변경을 원할 시에만 입력하세요.</h3><br/>
+  <h3>*비밀번호는 변경을 원할 시에만 입력하세요.</h3>
   <form action="{% url 'changepassword' %}" method='POST'>
       {% csrf_token %}
       <label for="inp" class="inp mt-3">

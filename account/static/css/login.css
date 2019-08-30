@@ -121,3 +121,25 @@ h2{
     border-radius: 20px;
     padding: 2rem;
 }
+
+@media screen and ( min-width: 1000px ) {
+    body {
+        background-image: none;
+        background: #002060;
+    }
+    h2{
+        word-spacing: 300px;
+    }
+    .loginbox{
+        padding: 7rem;
+    }
+    .inp input{
+        padding-top: 50px;
+    }
+    .inp .label {
+        font-size: 1.5rem;
+    }
+    .inp input {
+        font-size: 2rem;
+    }
+}

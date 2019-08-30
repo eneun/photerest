@@ -34,7 +34,7 @@ body{
     background-color: white;
     border-radius: 150px 150px 0px 0px;
     padding: 50px;
-    height: 100vh;
+    min-height: 100vh;
 }
 .followbox{
     font-family: 'NanumGothic', 'serif';
@@ -146,3 +146,112 @@ body{
     background:#fff;
     color:#FF2A8D;
   }
+
+  @media screen and ( min-width: 1000px ) {
+    .profile{
+        padding: 0px 200px;
+    }
+    .profile img{
+        height: 100px;
+        width:100px;
+    }
+    .profile .showname{
+        font-family: 'NanumGothic', 'serif';
+        font-size: 30px;
+    } 
+    .fa-plus::before{
+        font-size: 50px;
+        background-color: #FF2A8D;
+        border-radius: 100%;
+        margin-bottom: 5px;
+    }
+    .listbox{
+        border-radius: 100px 100px 0px 0px;
+        min-height: 100vh; 
+        margin: 0 2rem;
+    }
+    .followbox{
+        font-size: 30px;
+        height: 100px;
+    }
+    .postimage{
+        align-content: middle;
+        width: 100%;
+        border-radius: 50px;
+    }
+    .likebar{
+        font-family: 'NanumGothic', 'serif';
+        font-size: 30px;
+        margin-top: 80px;
+    }
+    .showpost .postcontent{
+        color: #002060;
+        font-family: 'NanumGothic', 'serif';
+        font-size: 30px;
+        padding: 10px 45px;
+    }
+    .fa-comment-alt{
+        color:#FF2A8D;
+        padding-left: 25px;
+    }
+    .thumb{
+        font-family: 'NanumGothic', 'serif';
+        font-size: 30px;
+        color: #FBB504;
+        text-decoration: none;
+    }
+    .likebar a{
+        text-decoration: none;
+    }
+    .commlist{
+        padding: 10px 45px;
+    }
+    .commlist a{
+        font-family: 'NanumGothic', 'serif';
+        font-size: 30px;
+        color: #FBB504;
+        text-decoration: none;
+        opacity:0.7;
+    }
+    .commentarea{
+        margin-top: 100px;
+        width: 100% !important;
+        border-radius: 30px;
+        font-family: 'NanumGothic', 'serif';
+        font-size: 30px;
+        color:#002060;
+    }
+    
+    .deletepost{
+        font-size:25px;
+        text-align: center;
+        width: 200px;
+        padding: 1rem;
+        color: #D0D0D0;
+    }
+    .deletepost:hover{
+        text-align: center;
+        /* background-size: 130px; */
+        background-color: #FBB504;
+        border-radius: 100px;
+        color: white;
+        text-decoration: none;
+    }
+    .comm-btn{
+        background:#FF2A8D;
+        color:#fff;
+        border:none;
+        border-radius: 100px;
+        /* height:80px !important; */
+        font-size:25px;
+        letter-spacing: 20px;
+        width:100%;
+        padding:1.5rem 6rem;
+        margin: 10px 45px;
+        outline:none;
+      }
+      .comm-btn:hover{
+        background:#fff;
+        color:#FF2A8D;
+      }
+}

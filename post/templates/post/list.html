@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
 </head>
 
-<div class="profile d-flex justify-content-between">
+<div class="profile d-flex justify-content-between align-items-center">
     <img src={{user.profile.image.url}} class="profileimg" alt='프로필 사진' width=100>
     <span class="showname">&emsp; {{user.username}}&nbsp;님의 피드 &emsp;</span>
     {% if user == request.user %}
         <a href="{% url 'postcreate' %}" >
-            <span style="font-size: 5rem;">
+            <span style="font-size: 75px;">
             <span style="color: white;">
                 <i class="fas fa-plus"></i>
             </span>
@@ -41,7 +41,7 @@
     </div>
     <div class="row piclist">
         {% for post in posts %}
-            <div class="col-sm-4">
+            <div class="col-sm-4 col-lg-3">
             <a href="{% url 'show' post.id %}">
                 <img src={{post.image.url}} alt='등록한 이미지' style='width: 100%'><br/>
             </a>

@@ -5,8 +5,17 @@
 </head>
 
 <div class='main-img'>
-    <p class='main-text'>나만의 피드를 꾸미고<br/>비슷한 관심사를 가진 사용자를 찾아보세요.</p>
+    {% if not request.PC %}
+        <p class='main-text'>나만의 피드를 꾸미고<br/>비슷한 관심사를 가진 사용자를 찾아보세요.</p>
+    {% endif %}
+    {% if request.PC %}
+    <p class='main-text-pc'>Welcome to Photerest</p>
+    <a href="{% url 'signup' %}" class='main-item'><div class='get-started-pc'>GET STARTED</div></a>
+    <a href="{% url 'login' %}" class='main-item'><div class='login-pc'>LOGIN</div></a>
+    {% endif %}
 </div>
-<div class='welcome-box'>Welcome to<br/>Photerest</div>
-<a href="{% url 'signup' %}" class='main-item'><div class='get-started'>GET STARTED</div></a>
-<a href="{% url 'login' %}" class='main-item'><div class='login'>LOGIN</div></a>
+{% if not request.PC %}
+    <div class='welcome-box'>Welcome to<br/>Photerest</div>
+    <a href="{% url 'signup' %}" class='main-item'><div class='get-started'>GET STARTED</div></a>
+    <a href="{% url 'login' %}" class='main-item'><div class='login'>LOGIN</div></a>
+{% endif %}

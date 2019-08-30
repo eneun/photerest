@@ -7,10 +7,12 @@
         {% bootstrap_javascript jquery='full' %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+        {% comment %} <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% endcomment %}
     </head>
     <body>
 
-    <!-- 상단바 -->
+    <!-- 모바일 상단바 -->
+    {% if not request.PC %}
     <ul class="nav top-nav">
         <li class="nav-item menu-left-arrow">
             <a class="nav-link" href="#" onClick="history.back(); return false;"><img src="{% static 'images/left-arrow.png' %}" class='arrow-icon-styling'></a>
@@ -19,8 +21,34 @@
             <script src="{% static 'js/current_page.js' %}" type='text/javascript'></script>
         </li>
     </ul>
+    {% endif %}
 
+    <!-- PC 상단바 -->
+    {% if request.PC %}
+    <ul class="nav top-nav-pc">
+        <li class="nav-item menu-left-arrow">
+            <a class="nav-link" href="#" onClick="history.back(); return false;"><img src="{% static 'images/left-arrow.png' %}" class='arrow-icon-styling'></a>
+        </li>
+        <li class="nav-item current-page">
+            <script src="{% static 'js/current_page.js' %}" type='text/javascript'></script>
+        </li>
+        <div class='pc-items'>
+            {% if user.is_authenticated %}
+                <li><a class='pc-item' href="{% url 'main' %}"><i class="fas fa-home mr-1"></i> 홈</a></li>
+                <li><a class='pc-item' href="{% url 'list' request.user.id %}"><i class="fas fa-user mr-1"></i> 내 피드</a></li>
+                <li><a class='pc-item' href="{% url 'recommend' %}"><i class="fas fa-user-friends mr-1"></i>친구찾기</a></li>
+                <li><a class='pc-item' href="{% url 'trend' %}"><i class="far fa-heart mr-1"></i> 트렌드</a></li>
+                <li><a class='pc-item' href="{% url 'setting' %}"><i class="fas fa-cog mr-1"></i> 설정</a></li>
+                <li><a class='pc-item' href="{% url 'logout' %}"><i class="fas fa-sign-out-alt mr-1"></i> 로그아웃</a></li>
+                
+            {% else %}
+                <li><a class='pc-item' href="{% url 'login' %}"><i class="fas fa-sign-in-alt mr-1"></i>로그인</a></li>
+            {% endif %}
+        </div>
+    </ul>
+    {% endif %}
 
+    {% if not request.PC %}
     <header>
         <input type='checkbox' id='toggle' style='display:none;' />
         <label class='toggle-btn toggle-btn__cross' for='toggle'>
@@ -62,7 +90,8 @@
             </ul>
             
         </nav>
-        </header>
+    </header>
+    {% endif %}
 
         {% block content %}
         {% endblock content %} 

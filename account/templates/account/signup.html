@@ -5,18 +5,14 @@
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
 </head>
-    <div class="signup">
+    <form class="signup">
         <form method="POST" action="{% url 'signup' %}">
             {% csrf_token %}
             {{form}}
-        
-            <div class='mt-5'>
         <h2>
             <a href="{% url 'login' %}" id=toplog>LOGIN</a>
             <a id=topsign>SIGNUP</a>
         </h2>
-        </div>
-
 
         <div class=signupbox>
             <label for="inp" class="inp">
@@ -36,6 +32,11 @@
             <span class="label">비밀번호 확인</span>
             <span class="border"></span>
             </label>
+            {% if request.PC %}
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class='fa confirm-btn'>가입하기</button>
+                </div>
+            {% endif %}
         </div>
         {% if error1 %}
             <div class="alert alert-danger account-alert" role="alert">
@@ -47,11 +48,13 @@
                  {{ error2 }}
             </div>
         {% endif %}
-        <div class="d-flex justify-content-center">
-            <button type="submit" class='fa confirm-btn'>가입하기</button>
-        </div>
+        {% if not request.PC %}
+            <div class="d-flex justify-content-center">
+                <button type="submit" class='fa confirm-btn'>가입하기</button>
+            </div>
+        {% endif %}
 
         </form>
-    </div>
+    </form>
 
     {% endblock %}

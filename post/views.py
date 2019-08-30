@@ -179,7 +179,8 @@ def find_interest(user):
                 categories['sports'] += 1
             elif category == 'face':
                 categories['face'] += 1
-
+    
+    print(categories)
     total = 0
     for num in categories.values():
         total += num

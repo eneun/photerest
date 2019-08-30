@@ -17,8 +17,9 @@
     <div class="trends">
         <div class="trend">
             {% for trend in first_trend %}
-                {% comment %} {{ trend }} {% endcomment %}
-                <img src={{trend.image.url}} alt='이미지' class='thumbnail' />
+                <a href="{% url 'show' trend.id %}">
+                    <img src={{trend.image.url}} alt='이미지' class='thumbnail' />
+                </a>
             {% endfor %}
         </div>
 	</div>
@@ -26,8 +27,9 @@
     <div class="trends">
         <div class="trend">
             {% for trend in second_trend %}
-                {% comment %} {{ trend }} {% endcomment %}
-                <img src={{trend.image.url}} alt='이미지 ' class='thumbnail' />
+                <a href="{% url 'show' trend.id %}">
+                    <img src={{trend.image.url}} alt='이미지 ' class='thumbnail' />
+                </a>
             {% endfor %}
         </div>
 	</div>
@@ -35,8 +37,9 @@
     <div class="trends">
         <div class="trend">
             {% for trend in third_trend %}
-                {% comment %} {{ trend }} {% endcomment %}
-                <img src={{trend.image.url}} alt='이미지 ' class='thumbnail' />
+                <a href="{% url 'show' trend.id %}">
+                    <img src={{trend.image.url}} alt='이미지 ' class='thumbnail' />
+                </a>
             {% endfor %}
         </div>
 	</div>

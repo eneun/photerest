@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
 </head>
 
-<div class="profile d-flex justify-content-between">
+<div class="profile d-flex justify-content-between align-items-center">
     <img src={{post.user.profile.image.url}} class="profileimg" alt='프로필 사진' width=100>
     <span class="showname">&emsp; {{post.user.username}}&nbsp;님의 피드 &emsp;</span>
     {% if post.user == request.user %}
@@ -35,56 +35,70 @@
             <div class="col-sm-4">{{like_count}}<br/>likes</div>
         </div>
     </div>
-    <div class="showpost">
-        <div class="miniprofile">
-            <img src={{post.user.profile.image.url}} alt='프로필 사진' width=50px>
-            &nbsp; {{post.user.username}} &nbsp;
-            <span class="postdate">{{post.created_at|date:"M d"}}</span>
-        </div>
-        <img src={{post.image.url}} class="postimage" alt='등록한 이미지'><br/>
-        <div class="likebar">
-             <i class="fas fa-heart"></i>
-             <strong>{{ post.like_set.count }}</strong> Likes 
-             {% if not post.user == request.user %}
-                {% if like %}
-                    <a href="{% url 'like' post.id %}">
-                        <span class="thumb"> &emsp;
-                        <i class="fas fa-thumbs-up"></i>
-                        좋아요 취소
-                        </span>
-                    </a>
-                {% else %}
-                    <a href="{% url 'like' post.id %}">
-                        <span class="thumb"> &emsp;
-                        <i class="fas fa-thumbs-up"></i>
-                        좋아요 
-                        </span>
-                    </a>
-                {% endif %}
-            {% endif %}
-        </div>
-
-        <div class="postcontent">{{post.content}}</div>
-
-        <div class="comments">
-            <i class="far fa-comment-alt"></i> Comments<br/>
-            <div class="commlist">
-                {% for comment in comments %}
-                    <em>{{comment.user}}</em> &nbsp;
-                    {{comment.content}} {% if comment.user == request.user %}<a href="{% url 'commentdelete' comment.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">[삭제]</a> {% endif %}<br/>
-                {% endfor %}
+    <div class="row showpost">
+        <div class="col-lg-6">
+            <div class="miniprofile">
+                <img src={{post.user.profile.image.url}} alt='프로필 사진' width=50px>
+                &nbsp; {{post.user.username}} &nbsp;
+                <span class="postdate">{{post.created_at|date:"M d"}}</span>
             </div>
-            <form action="{% url 'commentcreate' post.id %}" method='POST'>
-                {% csrf_token %}
-                {{form}}
-                <button class="comm-btn" type='submit'>댓글등록</button>
-            </form>
+            <img src={{post.image.url}} class="postimage" alt='등록한 이미지'><br/>
         </div>
+        <div class="col-lg-6">
+            <div class="likebar">
+                <i class="fas fa-heart"></i>
+                <strong>{{ post.like_set.count }}</strong> Likes 
+                {% if not post.user == request.user %}
+                    {% if like %}
+                        <a href="{% url 'like' post.id %}">
+                            <span class="thumb"> &emsp;
+                            <i class="fas fa-thumbs-up"></i>
+                            좋아요 취소
+                            </span>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'like' post.id %}">
+                            <span class="thumb"> &emsp;
+                            <i class="fas fa-thumbs-up"></i>
+                            좋아요 
+                            </span>
+                        </a>
+                    {% endif %}
+                {% endif %}
+            </div>
 
-            {% if post.user == request.user %}
-                    <a href="{% url 'postdelete' post.id %}" class="deletepost" onclick="return confirm('정말 삭제하시겠습니까?')">글 삭제</a>
-            {% endif %}
+            <div class="postcontent">{{post.content|linebreaks}}</div>
+
+            <div class="comments">
+                <form action="{% url 'commentcreate' post.id %}" method='POST'>
+                    {% csrf_token %}
+                    {{form}}
+                    <button class="comm-btn" type='submit'>댓글등록</button>
+                </form>
+                {% comment %} <i class="far fa-comment-alt"></i> Comments<br/>
+                <div class="commlist">
+                    {% for comment in comments %}
+                        <em>{{comment.user}}</em> &nbsp;
+                        {{comment.content}} {% if comment.user == request.user %}<a href="{% url 'commentdelete' comment.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">[삭제]</a> {% endif %}<br/>
+                    {% endfor %}
+                </div> {% endcomment %}
+            </div>
+
+                {% if post.user == request.user %}
+                        <a href="{% url 'postdelete' post.id %}" class="deletepost" onclick="return confirm('정말 삭제하시겠습니까?')">글 삭제</a>
+                {% endif %}
+        </div>
     </div>
+    <div class='showpost'>
+        <i class="far fa-comment-alt"></i> Comments
+        <div class="commlist">
+            {% for comment in comments %}
+                <em>{{comment.user}}</em> &nbsp;
+                {{comment.content}} {% if comment.user == request.user %}<a href="{% url 'commentdelete' comment.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">[삭제]</a> {% endif %}<br/>
+            {% endfor %}
+        </div>
+    </div>
+    
 </div>
 
 

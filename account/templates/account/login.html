@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
 </head>
 
-    <div class='mt-5'>
+    <div>
         <h2>
             <a id=toplog>LOGIN</a>
             <a href="{% url 'signup' %}" class=topsign>SIGNUP</a>
@@ -41,15 +41,22 @@
             <span class="label">비밀번호</span>
             <span class="border"></span>
             </label>
+            {% if request.PC %}
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class='btn confirm-btn'>로그인</button>
+                </div>
+            {% endif %}
         </div>
         {% if error %}
             <div class="alert alert-danger account-alert" role="alert">
                 {{ error }}
             </div>
         {% endif %}
-        <div class="d-flex justify-content-center">
-            <button type="submit" class='btn confirm-btn'>로그인</button>
-        </div>
+        {% if not request.PC %}
+            <div class="d-flex justify-content-center">
+                <button type="submit" class='btn confirm-btn'>로그인</button>
+            </div>
+        {% endif %}
         
 
         

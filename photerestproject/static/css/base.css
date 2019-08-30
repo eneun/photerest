@@ -206,3 +206,40 @@ header nav ul li a:hover {
     width: 70px;
     height: 60px;
 }
+
+
+
+/* PC 네비게이션바 */
+.nav.top-nav-pc {
+    height: 70px;
+}
+.nav.top-nav-pc li{
+    padding: 1.5rem;
+    color: white;
+    font-family: 'NanumGothic', 'serif';
+    
+}
+.nav.top-nav-pc li.current-page{
+    font-size: 1.5rem;
+    padding: 1rem 0rem;
+    color: white;
+    font-family: 'NanumGothic', 'serif';
+}
+.nav.top-nav-pc li.menu-left-arrow {
+    padding: 0.8rem;
+}
+.nav.top-nav-pc li img.arrow-icon-styling {
+    width: 30px;
+    height: 30px;
+}
+.pc-item {
+    color: white;
+}
+.pc-item:hover {
+    text-decoration: none;
+    color: white;
+}
+.pc-items {
+    display: flex;
+    margin-left: auto;
+}

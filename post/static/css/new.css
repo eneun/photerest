@@ -9,7 +9,7 @@ body{
     background-color: white;
     border-radius: 150px 150px 0px 0px;
     padding: 50px;
-    height: 100vh;
+    min-height: 100vh;
 }
 .postcontainer{
     padding: 0 100px;
@@ -44,4 +44,12 @@ body{
   .newpost-btn:hover{
     background:#fff;
     color:#FF2A8D;
+  }
+  @media screen and ( min-width: 1000px ) {
+    .listbox{
+        border-radius: 100px 100px 0 0;
+        min-height: 100vh;
+        margin: 0 2rem;
+    }
+
   }

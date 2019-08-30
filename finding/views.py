@@ -28,11 +28,11 @@ def find_others_by_interest(user):
     print(users)
     print(interests)
     if len(interests) == 1:
-        users = User.objects.filter(interest__interest=interests[0]).exclude(id=user.id)
+        users = User.objects.filter(interest__interest=interests[0]).exclude(id=user.id).distinct()
     elif len(interests) == 2:
         users = User.objects.filter(interest__interest=interests[0]) | User.objects.filter(interest__interest=interests[1])
-        users = users.exclude(id=user.id)
+        users = users.exclude(id=user.id).distinct()
     elif len(interests) == 3:
         users = User.objects.filter(interest__interest=interests[0]) | User.objects.filter(interest__interest=interests[1]) | User.objects.filter(interest__interest=interests[2])
-        users = users.exclude(id=user.id)
-    return users.distinct()
+        users = users.exclude(id=user.id).distinct()
+    return users

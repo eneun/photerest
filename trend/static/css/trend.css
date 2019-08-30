@@ -22,7 +22,7 @@ body{
     background-color: white;
     border-radius: 150px 150px 0px 0px;
     padding: 7rem 8rem;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .trends {
@@ -42,4 +42,16 @@ img.thumbnail {
     height: 230px;
     margin-right: 0.1rem;	
     object-fit: cover;
+}
+
+@media screen and ( min-width: 1000px ) {
+    .trend-info {
+        margin-top: 2rem;
+    }
+    .trendbox {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        border-radius: 100px 100px 0px 0px;
+    }
+    
 }

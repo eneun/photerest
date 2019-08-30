@@ -56,9 +56,9 @@ body{
     background-size: 500px;
     background-color: white;
     border-radius: 150px 150px 0px 0px;
-    padding: 50px 100px;
+    padding: 100px 100px;
     margin-top: 20px;
-    height: 100vh;
+    min-height: 100vh;
     font-family: 'NanumGothic', 'serif';
     color: #002060;
     font-size: 50px;
@@ -140,3 +140,20 @@ body{
     border-width: 5px;
     border-color: #FF2A8D;
   }
+
+@media screen and ( min-width: 1000px ) {
+    .changebox {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        border-radius: 100px 100px 0px 0px;
+    }
+    .inp input{
+        padding-top: 50px;
+    }
+    .inp .label {
+        font-size: 1.5rem;
+    }
+    .inp input {
+        font-size: 2rem;
+    }
+}
