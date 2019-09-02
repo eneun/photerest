@@ -21,7 +21,7 @@ def recommend(request):
 def find_others_by_interest(user):
     from finding.models import Interest
 
-    users = User.objects.exclude(id=user.id)[:3]
+    users = User.objects.exclude(id=user.id)[:5]
     interests = []
     for interest in Interest.objects.filter(user=user):
         interests.append(interest.interest)

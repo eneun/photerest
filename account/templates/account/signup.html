@@ -5,10 +5,9 @@
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
 </head>
-    <form class="signup">
-        <form method="POST" action="{% url 'signup' %}">
-            {% csrf_token %}
-            {{form}}
+    <form method="POST" class="signup" action="{% url 'signup' %}">
+        {% csrf_token %}
+        {{form}}
         <h2>
             <a href="{% url 'login' %}" id=toplog>LOGIN</a>
             <a id=topsign>SIGNUP</a>
@@ -53,8 +52,6 @@
                 <button type="submit" class='fa confirm-btn'>가입하기</button>
             </div>
         {% endif %}
-
-        </form>
     </form>
 
     {% endblock %}

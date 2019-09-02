@@ -112,6 +112,7 @@ def category(post):
     clf_shopping = joblib.load('/Users/ye/attemp/svm/svm_model/shopping_clf.pkl')
     clf_face = joblib.load('/Users/ye/attemp/svm/svm_model/face_clf.pkl')
     clf_art = joblib.load('/Users/ye/attemp/svm/svm_model/art_clf.pkl')
+    clf_cosmetic = joblib.load('/Users/ye/attemp/svm/svm_model/cosmetic_clf.pkl')
 
     
     # print(clf_animal.predict([string]))
@@ -137,6 +138,8 @@ def category(post):
         category = Category.objects.create(post=post, category='face')
     if clf_art.predict([string]) == ['1']:
         category = Category.objects.create(post=post, category='art')
+    if clf_cosmetic.predict([string]) == ['1']:
+        category = Category.objects.create(post=post, category='cosmetic')
     
 def set_interest(user):
     from finding.models import Interest
@@ -151,7 +154,7 @@ def set_interest(user):
 def find_interest(user):
     posts = Post.objects.filter(user=user)
     # print(posts)
-    categories = {'animal':0, 'shopping':0, 'art':0, 'game':0, 'education':0, 'travel':0, 'fitness':0, 'technology':0, 'food':0, 'sports':0, 'face':0}
+    categories = {'animal':0, 'shopping':0, 'art':0, 'game':0, 'education':0, 'travel':0, 'fitness':0, 'technology':0, 'food':0, 'sports':0, 'face':0, 'cosmetic':0}
     for post in posts:
         # print(post)
         for category in post.category_set.all():
@@ -179,6 +182,8 @@ def find_interest(user):
                 categories['sports'] += 1
             elif category == 'face':
                 categories['face'] += 1
+            elif category == 'cosmetic':
+                categories['cosmetic'] += 1
     
     print(categories)
     total = 0
@@ -190,7 +195,7 @@ def find_interest(user):
         
     for category in list(categories.keys()):
         categories[category] /= total
-        if categories[category] < 0.3:
+        if categories[category] < 0.33:
             del categories[category]
 
     return list(categories.keys())
