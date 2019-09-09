@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
 
-
 body{
     background-color: #002060;
 }
@@ -18,8 +17,7 @@ body{
     object-fit: cover;
 }
 .profile .showname{
-    font-family: 'NanumGothic', 'serif';
-    font-weight: lighter;
+    font-family: 'Montserrat';
     font-size: 50px;
     color: white;
 } 
@@ -37,8 +35,7 @@ body{
     min-height: 100vh;
 }
 .followbox{
-    font-family: 'NanumGothic', 'serif';
-    font-weight: bold;
+    font-family: 'Montserrat';
     font-size: 50px;
     text-align: center;
     height: 200px;
@@ -63,7 +60,6 @@ body{
         width:100px;
     }
     .profile .showname{
-        font-family: 'NanumGothic', 'serif';
         font-size: 30px;
     } 
     .fa-plus::before{
@@ -79,8 +75,6 @@ body{
         margin: 0 2rem;
     }
     .followbox{
-        font-family: 'NanumGothic', 'serif';
-        font-weight: bold;
         font-size: 30px;
         text-align: center;
         height: 150px;
@@ -89,4 +83,25 @@ body{
         margin-left: 1rem;
         margin-right: 1rem;
     }
+}
+
+.send-message {
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.43);
+    box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.43);
+}
+@media screen and ( max-width: 1000px ) {
+    .send-message {
+        border-radius: 50%;
+        -webkit-box-shadow: 0px 12px 20px 0px rgba(0,0,0,0.2);
+        -moz-box-shadow: 0px 12px 20px 0px rgba(0,0,0,0.2);
+        box-shadow: 0px 12px 20px 0px rgba(0,0,0,0.2);
+    }
+}
+
+.fa-paper-plane {
+    padding: 30px 35px 35px 30px;
+    background-color:#FF2A8D;
+    border-radius: 100%;  
 }

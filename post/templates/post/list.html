@@ -9,7 +9,7 @@
 
 <div class="profile d-flex justify-content-between align-items-center">
     <img src={{user.profile.image.url}} class="profileimg" alt='프로필 사진' width=100>
-    <span class="showname">&emsp; {{user.username}}&nbsp;님의 피드 &emsp;</span>
+    <span class="showname">{{user.username}}</span>
     {% if user == request.user %}
         <a href="{% url 'postcreate' %}" >
             <span style="font-size: 75px;">
@@ -19,13 +19,11 @@
         </a>
     {% else %}
         {% if follow %}
-            <a href="{% url 'follow' user.id %}"><img src="{% static 'images/afterfollow.png' %}" class='afollowstyle'></a><br/>
+            <a href="{% url 'follow' user.id %}"><img src="{% static 'images/afterfollow.png' %}" class='afollowstyle'></a>
         {% else %}
-            <a href="{% url 'follow' user.id %}"><img src="{% static 'images/beforefollow.png' %}" class='bfollowstyle'></a><br/>
+            <a href="{% url 'follow' user.id %}"><img src="{% static 'images/beforefollow.png' %}" class='bfollowstyle'></a>
         {% endif %}
     {% endif %}
-
-    
 </span>
 </div>
 
@@ -49,5 +47,27 @@
         {% endfor %}
     </div>
 </div>
+
+{% if user != request.user %}
+    {% if not request.PC %}
+        <div class='send-message' style='position: fixed; bottom: 5px; left: 50%; transform: translate(-50%, -50%); z-index: 1;'>
+            <a href="{% url 'message:messagecreate' user.id %}">
+                <span style="font-size: 75px;">
+                <span style="color: white;">
+                    <i class="far fa-paper-plane"></i>
+                </span>
+            </a>
+        </div>
+    {% else %}
+        <div class='send-message' style='position: fixed; bottom: 30px; right: 50px; z-index: 1;'>
+            <a href="{% url 'message:messagecreate' user.id %}">
+                <span style="font-size: 40px;">
+                <span style="color: white;">
+                    <i class="far fa-paper-plane"></i>
+                </span>
+            </a>
+        </div>
+    {% endif %}
+{% endif %}
 
 {% endblock %}

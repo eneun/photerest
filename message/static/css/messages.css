@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
+body{
+    background-color: #002060;
+}
+a:hover {
+    text-decoration: none;
+}
+.messagebox{
+    background-size: 500px;
+    background-color: white;
+    border-radius: 150px 150px 0px 0px;
+    padding: 50px;
+    min-height: 100vh;
+}
+.nav-pills .nav-link {
+    padding: 1rem;
+    font-size: 2.8rem;
+    border-radius: 100rem;
+    color: #002060;
+}
+.nav-pills .nav-link.active {
+    background-color: #FBB504;
+    color: white;
+}
+.message-obj {
+    font-size: 3rem;
+    padding: 1.6rem;
+    min-height: 3rem;
+    border-bottom: 3px dashed #002060;
+    color: #002060;
+    margin-bottom: 1rem;
+}
+.username-and-date {
+    color: #002060ba;
+}
+.message-content {
+    padding: 1rem 1.8rem;
+    font-size: 3.2rem;
+}
+@media screen and ( min-width: 1000px ) {
+    .messagebox{
+        border-radius: 100px 100px 0px 0px;
+        min-height: 100vh; 
+        padding: 30px;
+        margin: 0 2rem;
+    }
+}
+
+
+/* show.html css */
+.message-show-content {
+    font-size: 3.2rem;
+    border: 3px solid rgba(0,0,0,.1);
+    min-height: 450px;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem 0rem;
+}

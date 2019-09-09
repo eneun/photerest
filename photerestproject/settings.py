@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'labeling.apps.LabelingConfig',
     'finding.apps.FindingConfig',
     'trend.apps.TrendConfig',
+    'message.apps.MessageConfig',
 ]
 
 MIDDLEWARE = [

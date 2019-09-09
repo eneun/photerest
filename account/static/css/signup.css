@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+@font-face { font-family: 'BBTreeGL'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGL.woff') format('woff'); font-weight: normal; font-style: normal; }
 
 
 .signupbox {
-    font-family: 'NanumGothic', 'serif';
+    font-family: 'BBTreeGL';
     background-color:white;
     border-radius: 100px;
     margin: 50px;
@@ -18,8 +19,9 @@ body{
     background-size : cover;
 }
 h2{
-    font-family: 'NanumGothic', 'serif';
+    font-family: 'Montserrat', sans-serif;
     font-size: 50px;
+    font-weight: 400;
     text-align: center;
     letter-spacing: 10px;
     word-spacing: 150px;
@@ -44,7 +46,7 @@ h2{
     position: absolute;
     top: 16px;
     left: 0;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #9098a9;
     font-weight: 500;
     transform-origin: 0 0;
@@ -94,7 +96,7 @@ h2{
 } 
 
 .confirm-btn{
-    font-family: 'NanumGothic', 'serif';
+    font-family: 'BBTreeGL';
     font-weight: 600;
     font-size:50px ;
     background:#FF2A8D;

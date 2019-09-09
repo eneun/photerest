@@ -3,9 +3,10 @@
 {% load staticfiles %}
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/setting.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
 </head>
 <div class="row presentprofile">
-  <div class="col-4 col-lg-3">
+  <div class="col-3 col-lg-3">
     <img src={{request.user.profile.image.url}} alt='프로필 사진' width=200>
   </div>
   <div class="col profileid">
@@ -44,7 +45,7 @@
   </div>
 
 <div class="changebox">
-  <h3>*비밀번호는 변경을 원할 시에만 입력하세요.</h3>
+  <h2>*비밀번호는 변경을 원할 시에만 입력하세요.</h2>
   <form action="{% url 'changepassword' %}" method='POST'>
       {% csrf_token %}
       <label for="inp" class="inp mt-3">

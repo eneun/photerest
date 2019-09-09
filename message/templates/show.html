@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/new.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/messages.css' %}">
+</head>
+
+<div class=listbox>
+    <div class="postcontainer">
+        {% if message.sender == request.user %}
+            <h1>To. {{message.receiver}}</h1>
+        {% else %}
+            <h1>From. {{message.sender}}</h1>
+        {% endif %}
+        <hr>
+        {{message.created_at|date:"M d"}}<br/>
+
+        <div class='message-show-content'>
+            {{message.content}}
+        </div>
+        {% if message.sender == request.user %}
+            <a href="{% url 'message:messagecreate' other.id %}" class='btn newpost-btn'>새로운 메시지</a>
+        {% else %}
+            <a href="{% url 'message:messagecreate' other.id %}" class='btn newpost-btn'>답장하기</a>
+        {% endif %}
+        
+
+    </div>
+</div>
+
+
+{% endblock %}

@@ -4,13 +4,13 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/new.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
 </head>
 
 <div class=listbox>
     <div class="postcontainer">
         <h1>New post</h1>
-        <br><hr>
-        <br><br>
+        <hr><br>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.media }}

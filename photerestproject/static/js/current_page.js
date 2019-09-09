@@ -16,6 +16,8 @@ if (path.includes("finding")) {
     result = 'Signup'
 } else if (path.includes('postcreate')) {
     result = 'New Post'
+} else if (path.includes('message')) {
+    result = 'Message'
 }
 
 document.write(result)

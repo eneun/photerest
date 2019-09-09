@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/new.css' %}">
+</head>
+
+<div class=listbox>
+    <div class="postcontainer">
+        <h1>New message</h1>
+        <hr>
+        <div class='mt-5 mb-3'>
+            {{user}}에게 보내는 메시지
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" class="btn newpost-btn" value="메시지 보내기"/>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

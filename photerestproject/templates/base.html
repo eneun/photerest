@@ -7,7 +7,7 @@
         {% bootstrap_javascript jquery='full' %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
-        {% comment %} <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% endcomment %}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
     </head>
     <body>
 
@@ -38,6 +38,7 @@
                 <li><a class='pc-item' href="{% url 'list' request.user.id %}"><i class="fas fa-user mr-1"></i> 내 피드</a></li>
                 <li><a class='pc-item' href="{% url 'recommend' %}"><i class="fas fa-user-friends mr-1"></i>친구찾기</a></li>
                 <li><a class='pc-item' href="{% url 'trend' %}"><i class="far fa-heart mr-1"></i> 트렌드</a></li>
+                <li><a class='pc-item' href="{% url 'message:messages' %}"><i class="far fa-envelope"></i> 메시지</a></li>
                 <li><a class='pc-item' href="{% url 'setting' %}"><i class="fas fa-cog mr-1"></i> 설정</a></li>
                 <li><a class='pc-item' href="{% url 'logout' %}"><i class="fas fa-sign-out-alt mr-1"></i> 로그아웃</a></li>
                 
@@ -81,6 +82,7 @@
                     <li><a class='item' href="{% url 'list' request.user.id %}"><i class="fas fa-user mr-5"></i> 내 피드</a></li>
                     <li><a class='item' href="{% url 'recommend' %}"><i class="fas fa-user-friends mr-5"></i>친구찾기</a></li>
                     <li><a class='item' href="{% url 'trend' %}"><i class="far fa-heart mr-5"></i> 트렌드</a></li>
+                    <li><a class='item' href="{% url 'message:messages' %}"><i class="far fa-envelope mr-5"></i> 메시지</a></li>
                     <li><a class='item' href="{% url 'setting' %}"><i class="fas fa-cog mr-5"></i> 설정</a></li>
                     <li><a class='item' href="{% url 'logout' %}"><i class="fas fa-sign-out-alt mr-5"></i> 로그아웃</a></li>
                     

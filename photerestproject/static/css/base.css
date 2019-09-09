@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+@font-face { font-family: 'BBTreeGL'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGL.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+/* 영문폰트 >> font-family: 'Montserrat';
+   한글폰트 >> font-family: 'BBTreeGL'; */
 
 main {
   min-width: 200px;
@@ -29,19 +33,8 @@ header nav {
   transition: all 0.3s ease-in-out;
 }
 
-header nav div.menuprofile {
-    font-family: 'NanumGothic', 'serif';
-    font-weight: lighter;
-}
-@media(min-width: 768px) {
-    header nav ul.menu_profile {
-        /* display: none; */
-    }
-}
-
 header nav ul {
-    font-family: 'NanumGothic', 'serif';
-    font-weight: lighter;
+    font-family: 'BBTreeGL';
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -81,7 +74,7 @@ header nav ul li a:hover {
 .toggle-btn {
   display: block;
   position: fixed;
-  z-index: 10;
+  z-index: 11;
   right: 50px;
   top: 28px;
   cursor: pointer;
@@ -101,7 +94,7 @@ header nav ul li a:hover {
 #toggle:checked ~ nav {
   opacity: 1;
   visibility: visible;
-  z-index: 1;
+  z-index: 10;
 }
 #toggle:checked ~ nav ul.menu_profile {
   top: 0px;
@@ -111,6 +104,7 @@ header nav ul li a:hover {
     margin-bottom: 0;
 }
 #toggle:checked ~ nav ul.menu_profile li.menu_username {
+  font-family: 'Montserrat';
   font-size: 5rem;
   padding-left: 3.5rem;
 }
@@ -146,6 +140,10 @@ header nav ul li a:hover {
     background-color: #fbb504;
     border-radius: 100px;
 }
+#toggle:checked ~ nav ul li.menu_username:hover {
+    background-color: #002060;
+}
+
 #toggle:checked ~ nav ul li:nth-child(1) {
   transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.1s;
 }
@@ -166,6 +164,9 @@ header nav ul li a:hover {
 }
 #toggle:checked ~ nav ul li:nth-child(7) {
     transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.7s;
+}
+#toggle:checked ~ nav ul li:nth-child(8) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.8s;
 }
 #toggle:checked + label.toggle-btn .bar {
   background-color: #ff2a8d;
@@ -193,14 +194,12 @@ header nav ul li a:hover {
     font-size: 2rem;
     padding: 2rem;
     color: white;
-    font-family: 'NanumGothic', 'serif';
-    
 }
 .nav.top-nav li.current-page{
     font-size: 3rem;
     padding: 2rem 0rem;
     color: white;
-    font-family: 'NanumGothic', 'serif';
+    font-family: 'Montserrat';
 }
 .nav.top-nav li img.arrow-icon-styling {
     width: 70px;
@@ -216,14 +215,14 @@ header nav ul li a:hover {
 .nav.top-nav-pc li{
     padding: 1.5rem;
     color: white;
-    font-family: 'NanumGothic', 'serif';
+    font-family: 'BBTreeGL';
     
 }
 .nav.top-nav-pc li.current-page{
     font-size: 1.5rem;
     padding: 1rem 0rem;
     color: white;
-    font-family: 'NanumGothic', 'serif';
+    font-family: 'Montserrat';
 }
 .nav.top-nav-pc li.menu-left-arrow {
     padding: 0.8rem;

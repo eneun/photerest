@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+@font-face { font-family: 'BBTreeGL'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGL.woff') format('woff'); font-weight: normal; font-style: normal; }
 
 body {
     margin: 0;
@@ -12,11 +13,11 @@ body {
 }
 .main-text {
     text-align: center;
-    font-family: 'NanumGothic', 'serif';
+    font-family: 'BBTreeGL';
     font-weight: lighter;
     color: #ffffff9c;
-    font-size: 2rem;
-    padding-top: 110%;
+    font-size: 2.5rem;
+    padding-top: 105%;
     line-height: 2;
 }
 .welcome-box {
@@ -30,9 +31,8 @@ body {
     text-align: center;
     font-size: 6rem;
     padding: 9rem 0;
-    font-family: 'NanumGothic', 'serif';
-    font-weight: bold;
-    letter-spacing: 5px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
 }
 a.main-item {
     text-decoration: none;
@@ -48,8 +48,7 @@ a.main-item {
     padding: 4rem 5rem;
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
-    font-family: 'NanumGothic', 'serif';
-    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
 }
 .login {
     position: relative;
@@ -62,8 +61,7 @@ a.main-item {
     padding: 4rem 5rem;
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
-    font-family: 'NanumGothic', 'serif';
-    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* PC */
@@ -81,7 +79,7 @@ a.main-item {
         padding-top: 30vh;
         color: white;
         font-size: 5rem;
-        font-family: 'NanumGothic', 'serif';
+        font-family: 'Montserrat', sans-serif;
         font-weight: bold;
         margin-bottom: 9rem;
         letter-spacing: 0.5rem;
@@ -95,8 +93,7 @@ a.main-item {
         padding: 2rem;
         border-top-left-radius: 100px;
         border-bottom-left-radius: 100px;
-        font-family: 'NanumGothic', 'serif';
-        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
     }
     .login-pc {
         background-color: #ff2a8dd9;
@@ -107,8 +104,7 @@ a.main-item {
         padding: 2rem;
         border-top-left-radius: 100px;
         border-bottom-left-radius: 100px;
-        font-family: 'NanumGothic', 'serif';
-        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
     }
     
 }

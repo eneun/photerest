@@ -24,6 +24,7 @@ import like.views
 import comment.views
 import finding.views
 import trend.views
+import message.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,6 +36,7 @@ urlpatterns = [
     path('comment/', include('comment.urls')),
     path('finding/', include('finding.urls')),
     path('trend/', include('trend.urls')),
+    path('message/', include('message.urls')),
 ]
 
 # media

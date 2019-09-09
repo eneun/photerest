@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
-
+@font-face { font-family: 'BBTreeGL'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGL.woff') format('woff'); font-weight: normal; font-style: normal; }
 
 body{
     background-color: #002060;
@@ -18,7 +18,7 @@ body{
     object-fit: cover;  
 }
 .profile .showname{
-    font-family: 'NanumGothic', 'serif';
+    font-family: 'Montserrat';
     font-weight: lighter;
     font-size: 50px;
     color: white;
@@ -37,8 +37,7 @@ body{
     min-height: 100vh;
 }
 .followbox{
-    font-family: 'NanumGothic', 'serif';
-    font-weight: bold;
+    font-family: 'Montserrat';
     font-size: 50px;
     text-align: center;
     height: 200px;
@@ -46,12 +45,12 @@ body{
 }
 .showpost{
     color: #002060;
-    font-family: 'NanumGothic', 'serif';
+    font-family: 'Montserrat';
     font-size: 40px;
     margin: 30px;
 }
 .showpost .postdate{
-    font-family: 'NanumGothic', 'serif';
+    font-family: 'Montserrat';
     font-size: 30px;
     color: #C7C7C7;
 }
@@ -61,7 +60,8 @@ body{
     border-radius: 50px;
 }
 .miniprofile{
-    padding-left: 25px;
+    font-weight: bold;
+    padding-left: 0px;
     margin-bottom: 20px;
 }
 .miniprofile img{
@@ -79,7 +79,7 @@ body{
 }
 .showpost .postcontent{
     color: #002060;
-    font-family: 'NanumGothic', 'serif';
+    font-family: 'BBTreeGL';
     padding: 10px 45px;
 }
 .fa-comment-alt{
@@ -87,7 +87,7 @@ body{
     padding-left: 25px;
 }
 .thumb{
-    font-family: 'NanumGothic', 'serif';
+    font-family: 'Montserrat';
     font-size: 35px;
     color: #FBB504;
     text-decoration: none;
@@ -99,7 +99,7 @@ body{
     padding: 10px 45px;
 }
 .commlist a{
-    font-family: 'NanumGothic', 'serif';
+    font-family: 'BBTreeGL';
     font-size: 35px;
     color: #FBB504;
     text-decoration: none;
@@ -109,12 +109,13 @@ body{
     margin: 10px 45px;
     width: 750px !important;
     border-radius: 30px;
-    font-family: 'NanumGothic', 'serif';
+    font-family: 'BBTreeGL';
     font-size: 30px;
     color:#002060;
 }
 
 .deletepost{
+    font-family: 'BBTreeGL';
     float: right;
     text-align: center;
     width: 200px;
@@ -135,7 +136,8 @@ body{
     border:none;
     border-radius: 100px;
     /* height:80px !important; */
-    font-size:30px;
+    font-family: 'BBTreeGL';
+    font-size:40px;
     letter-spacing: 20px;
     width:750px;
     padding:1.5rem 10rem;
@@ -156,11 +158,10 @@ body{
         width:100px;
     }
     .profile .showname{
-        font-family: 'NanumGothic', 'serif';
         font-size: 30px;
     } 
     .fa-plus::before{
-        font-size: 50px;
+        font-size: 30px;
         background-color: #FF2A8D;
         border-radius: 100%;
         margin-bottom: 5px;
@@ -174,19 +175,25 @@ body{
         font-size: 30px;
         height: 100px;
     }
+    .miniprofile{
+        font-size: 30px;
+        font-weight: bold;
+        padding-left: 0;
+    }
+    .miniprofile .postdate{
+        font-size: 20px;
+    }
     .postimage{
         align-content: middle;
         width: 100%;
         border-radius: 50px;
     }
     .likebar{
-        font-family: 'NanumGothic', 'serif';
         font-size: 30px;
         margin-top: 80px;
     }
     .showpost .postcontent{
         color: #002060;
-        font-family: 'NanumGothic', 'serif';
         font-size: 30px;
         padding: 10px 45px;
     }
@@ -195,7 +202,6 @@ body{
         padding-left: 25px;
     }
     .thumb{
-        font-family: 'NanumGothic', 'serif';
         font-size: 30px;
         color: #FBB504;
         text-decoration: none;
@@ -207,7 +213,6 @@ body{
         padding: 10px 45px;
     }
     .commlist a{
-        font-family: 'NanumGothic', 'serif';
         font-size: 30px;
         color: #FBB504;
         text-decoration: none;
@@ -216,40 +221,21 @@ body{
     .commentarea{
         margin-top: 100px;
         width: 100% !important;
-        border-radius: 30px;
-        font-family: 'NanumGothic', 'serif';
         font-size: 30px;
-        color:#002060;
     }
     
     .deletepost{
         font-size:25px;
         text-align: center;
-        width: 200px;
         padding: 1rem;
-        color: #D0D0D0;
     }
     .deletepost:hover{
         text-align: center;
-        /* background-size: 130px; */
-        background-color: #FBB504;
-        border-radius: 100px;
-        color: white;
-        text-decoration: none;
     }
     .comm-btn{
-        background:#FF2A8D;
-        color:#fff;
-        border:none;
-        border-radius: 100px;
-        /* height:80px !important; */
-        font-size:25px;
-        letter-spacing: 20px;
         width:100%;
         padding:1.5rem 6rem;
-        margin: 10px 45px;
-        outline:none;
-      }
+    }
       .comm-btn:hover{
         background:#fff;
         color:#FF2A8D;

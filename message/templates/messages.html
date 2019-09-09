@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/messages.css' %}">
+</head>
+
+<div class='messagebox'>
+
+
+    <ul class="nav nav-justified nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="pills-receive-tab" data-toggle="pill" href="#pills-receive" role="tab" aria-controls="pills-receive" aria-selected="true">받은 메시지</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="pills-send-tab" data-toggle="pill" href="#pills-send" role="tab" aria-controls="pills-send" aria-selected="false">보낸 메시지</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-receive" role="tabpanel" aria-labelledby="pills-receive-tab">
+            {% for message in receive_messages %}
+                <a href="{% url 'message:show' message.id %}">
+                    <div class='message-obj'>
+                        <div class='username-and-date d-flex justify-content-between'>
+                            <div>{{message.sender}}</div>
+                            <div>{{message.created_at|date:"M d"}}</div>
+                        </div>
+                        <div class='message-content'>
+                            {{message.content}}
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        <div class="tab-pane fade" id="pills-send" role="tabpanel" aria-labelledby="pills-send-tab">
+            {% for message in send_messages %}
+                <a href="{% url 'message:show' message.id %}">
+                    <div class='message-obj'>
+                        <div class='username-and-date d-flex justify-content-between'>
+                            <div>{{message.receiver}}</div>
+                            <div>{{message.created_at|date:"M d"}}</div>
+                        </div>
+                        <div class='message-content'>
+                            {{message.content}}
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}
