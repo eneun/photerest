@@ -17,6 +17,9 @@ body{
     border-radius: 50%;
     object-fit: cover;  
 }
+a.shownamelink:hover {
+    text-decoration: none;
+}
 .profile .showname{
     font-family: 'Montserrat';
     font-weight: lighter;
@@ -161,7 +164,7 @@ body{
         font-size: 30px;
     } 
     .fa-plus::before{
-        font-size: 30px;
+        font-size: 50px;
         background-color: #FF2A8D;
         border-radius: 100%;
         margin-bottom: 5px;
@@ -169,6 +172,7 @@ body{
     .listbox{
         border-radius: 100px 100px 0px 0px;
         min-height: 100vh; 
+        padding: 30px;
         margin: 0 2rem;
     }
     .followbox{

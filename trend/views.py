@@ -15,9 +15,12 @@ def trend(request):
     first = trends[0]['category']
     second = trends[1]['category']
     third = trends[2]['category']
-    
+
     first_trend = Post.objects.filter(category_set__category=first)
     second_trend = Post.objects.filter(category_set__category=second)
     third_trend = Post.objects.filter(category_set__category=third)
-    
+
+    # 나중에 삭제
+    second_trend = second_trend.filter(id__gt=109) & second_trend.filter(id__lt=140).order_by('-created_at')
+
     return render(request, 'trend.html', {'first': first, 'second': second, 'third': third, 'first_trend': first_trend, 'second_trend': second_trend, 'third_trend': third_trend})

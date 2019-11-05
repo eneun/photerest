@@ -9,20 +9,24 @@
 </head>
 
 <div class="profile d-flex justify-content-between align-items-center">
-    <img src={{post.user.profile.image.url}} class="profileimg" alt='프로필 사진' width=100>
-    <span class="showname">{{post.user.username}}</span>
+    <a href="{% url 'list' post.user.id %}">
+        <img src={{post.user.profile.image.url}} class="profileimg" alt='프로필 사진' width=100>
+    </a>
+    <a href="{% url 'list' post.user.id %}" class='shownamelink'>
+        <span class="showname">{{post.user.username}}</span>
+    </a>
     {% if post.user == request.user %}
         <a href="{% url 'postcreate' %}" >
-            <span style="font-size: 5rem;">
+            <span style="font-size: 75px;">
             <span style="color: white;">
                 <i class="fas fa-plus"></i>
             </span>
         </a>
     {% else %}
         {% if follow %}
-            <a href="{% url 'follow' post.user.id %}"><img src="{% static 'images/afterfollow.png' %}" class='afollowstyle'></a><br/>
+            <a href="{% url 'follow' post.user.id %}"><img src="{% static 'images/afterfollow.png' %}" class='afollowstyle'></a>
         {% else %}
-            <a href="{% url 'follow' post.user.id %}"><img src="{% static 'images/beforefollow.png' %}" class='bfollowstyle'></a><br/>
+            <a href="{% url 'follow' post.user.id %}"><img src="{% static 'images/beforefollow.png' %}" class='bfollowstyle'></a>
         {% endif %}
     {% endif %}   
 </span>

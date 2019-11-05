@@ -11,6 +11,7 @@ def recommend(request):
 
     # 내 관심사
     interests = Interest.objects.filter(user=request.user)
+    print(interests)
 
     # 내 관심사를 가진 다른 사용자
     users = find_others_by_interest(request.user)

@@ -185,6 +185,8 @@ def find_interest(user):
             elif category == 'cosmetic':
                 categories['cosmetic'] += 1
     
+    categories = {'animal':1, 'shopping':0, 'art':0, 'game':1, 'education':0, 'travel':0, 'fitness':0, 'technology':0, 'food':1, 'sports':0, 'face':0, 'cosmetic':0}
+
     print(categories)
     total = 0
     for num in categories.values():
