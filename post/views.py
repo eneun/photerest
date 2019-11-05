@@ -156,9 +156,7 @@ def find_interest(user):
     # print(posts)
     categories = {'animal':0, 'shopping':0, 'art':0, 'game':0, 'education':0, 'travel':0, 'fitness':0, 'technology':0, 'food':0, 'sports':0, 'face':0, 'cosmetic':0}
     for post in posts:
-        # print(post)
         for category in post.category_set.all():
-            # print(category)
             category = str(category)
             if category == 'animal':
                 categories['animal'] += 1
@@ -185,9 +183,6 @@ def find_interest(user):
             elif category == 'cosmetic':
                 categories['cosmetic'] += 1
     
-    categories = {'animal':1, 'shopping':0, 'art':0, 'game':1, 'education':0, 'travel':0, 'fitness':0, 'technology':0, 'food':1, 'sports':0, 'face':0, 'cosmetic':0}
-
-    print(categories)
     total = 0
     for num in categories.values():
         total += num
